@@ -77,3 +77,7 @@
 ## 12:59 - GA4タグ追加
 - 全HTMLファイルにGoogle Analytics 4タグ (G-7NHBDYBWEY) を追加
 - 対象: index.html, privacy.html, terms.html, en/index.html, en/privacy.html, en/terms.html, zh-Hant/index.html, zh-Hant/privacy.html, zh-Hant/terms.html, th/index.html, th/privacy.html, th/terms.html
+
+## 13:07 - GitHubリンク削除
+- 全HTMLファイル(12ファイル)からGitHubリンクを削除
+- 対象箇所: お問い合わせセクションのGitHubボタン、フッターのGitHubリンク
