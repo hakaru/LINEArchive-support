@@ -22,6 +22,10 @@
 - ブラウザ表示確認済み
 - 注意: Googleフォームは `https://forms.gle/PLACEHOLDER` でプレースホルダー配置
 
-## 12:27 - commit push 開始
+## 12:27 - commit push 完了
 - ユーザーがブラウザで確認済み
 - Geminiレビュー実行後、commit & push
+- リポジトリ: https://github.com/hakaru/LINEArchive-support
+
+## 12:30 - GitHub Pages 有効化
+- gh api で GitHub Pages を main ブランチ / (root) で有効化
