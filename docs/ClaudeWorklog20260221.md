@@ -29,3 +29,29 @@
 
 ## 12:30 - GitHub Pages 有効化
 - gh api で GitHub Pages を main ブランチ / (root) で有効化
+
+## 12:35 - 多言語化対応プラン策定
+- ユーザーから多言語化の依頼、各言語間リンクは不要
+- 現在のファイル構成を確認し、ディレクトリベースの多言語化を検討
+
+## 12:40 - 多言語化対応 実装開始
+- プラン承認済み、9ファイル新規作成に着手
+- 対象: en/(3), zh-Hant/(3), th/(3) の index.html, privacy.html, terms.html
+- 日本語版をベースに翻訳、CSS共有（../css/style.css）、言語切り替えリンクなし
+
+## 12:47 - 多言語化対応 実装完了
+- 全9ファイル新規作成完了:
+  - `en/index.html`, `en/privacy.html`, `en/terms.html` (英語版)
+  - `zh-Hant/index.html`, `zh-Hant/privacy.html`, `zh-Hant/terms.html` (繁体字中国語版)
+  - `th/index.html`, `th/privacy.html`, `th/terms.html` (タイ語版)
+- 検証済み:
+  - lang属性: en, zh-Hant, th が各言語ページに正しく設定
+  - CSS参照パス: サブディレクトリから `../css/style.css` で正しく参照
+  - ページ内リンク: #features, #howto, #faq 等のアンカー維持
+  - 相対リンク: privacy.html, terms.html への相対パス正しく設定
+  - 言語切り替えリンク: なし（ユーザー指示通り）
+  - 固有名詞: LineArchive, macOS, iOS, LINE, .linearchive 等はそのまま維持
+
+## 12:49 - commit push 開始
+- Geminiレビュー実行後、commit & push 予定
+- 対象: en/, zh-Hant/, th/ の9ファイル新規追加 + ワークログ更新

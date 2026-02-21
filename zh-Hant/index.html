@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LineArchive - LINE 聊天記錄備份與瀏覽應用程式</title>
+  <meta name="description" content="LineArchive 是一款 macOS/iOS 應用程式，可安全備份及瀏覽您的 LINE 聊天記錄。所有處理均在本機完成，保護您的隱私。">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="#" class="logo"><span>Line</span>Archive</a>
+    <button class="nav-toggle" aria-label="選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="site-nav" id="site-nav">
+        <li><a href="#features">功能</a></li>
+        <li><a href="#howto">使用方式</a></li>
+        <li><a href="#faq">常見問題</a></li>
+        <li><a href="#privacy">隱私權</a></li>
+        <li><a href="#contact">聯絡我們</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+  <div class="container">
+    <h1><span>Line</span>Archive</h1>
+    <p class="tagline">安全備份與瀏覽您的 LINE 聊天記錄</p>
+    <div class="badge-row">
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        macOS 14.0+
+      </span>
+      <span class="badge">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z"/></svg>
+        iOS 17.0+
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Features ===== -->
+<section id="features">
+  <div class="container">
+    <h2 class="section-title">主要功能</h2>
+    <p class="section-subtitle">簡單且安全的 LINE 聊天記錄管理</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F513;</div>
+        <h3>LINE 加密資料庫解密</h3>
+        <p>自動解密 macOS 版 LINE 的加密資料庫，讀取您的聊天記錄。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F5B1;</div>
+        <h3>一鍵自動匯入</h3>
+        <p>無需複雜設定。只需一鍵即可自動偵測並匯入 LINE 資料。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F4AC;</div>
+        <h3>LINE 風格聊天介面</h3>
+        <p>以與 LINE 相同外觀的聊天介面瀏覽記錄，操作體驗令人熟悉。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F50D;</div>
+        <h3>全文搜尋</h3>
+        <p>跨所有聊天記錄進行全文搜尋，快速找到過去的訊息。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F4E4;</div>
+        <h3>跨裝置資料共享</h3>
+        <p>以 .linearchive 格式匯出和匯入，輕鬆將資料從 macOS 轉移至 iOS。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">&#x1F512;</div>
+        <h3>完全本機處理</h3>
+        <p>所有資料處理皆在您的裝置上完成，不進行任何網路通訊。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== How To Use ===== -->
+<section id="howto">
+  <div class="container">
+    <h2 class="section-title">使用方式</h2>
+    <p class="section-subtitle">簡單 3 步驟瀏覽聊天記錄</p>
+
+    <div class="platform-tabs">
+      <button class="platform-tab active" data-platform="macos">macOS</button>
+      <button class="platform-tab" data-platform="ios">iOS</button>
+    </div>
+
+    <!-- macOS -->
+    <div class="platform-content active" id="platform-macos">
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>啟動應用程式</h3>
+            <p>啟動 LineArchive。請確認已安裝 macOS 版 LINE。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>點擊「匯入」</h3>
+            <p>點擊主畫面上的匯入按鈕。應用程式將自動偵測、解密並匯入 LINE 資料庫。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>瀏覽聊天記錄</h3>
+            <p>匯入完成後，即可在 LINE 風格介面中瀏覽和搜尋聊天記錄。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- iOS -->
+    <div class="platform-content" id="platform-ios">
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>準備 .linearchive 檔案</h3>
+            <p>將從 macOS 版 LineArchive 匯出的 .linearchive 檔案傳輸至 iOS 裝置（透過 AirDrop、iCloud 雲碟等方式）。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>匯入檔案</h3>
+            <p>點擊 .linearchive 檔案以在 LineArchive 中開啟，或從應用程式內的「匯入」選項中選擇。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>瀏覽聊天記錄</h3>
+            <p>匯入完成後，即可在 iPhone 上以 LINE 風格介面瀏覽和搜尋聊天記錄。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section id="faq">
+  <div class="container">
+    <h2 class="section-title">常見問題</h2>
+    <p class="section-subtitle">遇到問題時請先查閱此處</p>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>顯示「找不到 LINE」訊息</summary>
+        <div class="faq-answer">
+          <p>請確認已安裝 macOS 版 LINE 應用程式，且已至少登入一次。LINE 資料庫會在首次登入後建立。App Store 版本及官方網站版本的 LINE 均支援。</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>顯示「需要存取權限」訊息</summary>
+        <div class="faq-answer">
+          <p>您可能需要在 macOS 安全性設定中授予「完整磁碟存取權」。請前往系統設定 &gt; 隱私權與安全性 &gt; 完整磁碟存取權，然後新增 LineArchive。</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>我的資料安全嗎？</summary>
+        <div class="faq-answer">
+          <p>是的。LineArchive 在您的裝置上本機處理所有資料，不進行任何網路通訊，絕不會將資料傳送至外部伺服器。加密金鑰僅在記憶體中使用，不會儲存至磁碟。</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>支援哪些訊息格式？</summary>
+        <div class="faq-answer">
+          <p>支援文字訊息、圖片、貼圖、影片、語音訊息、檔案、位置資訊、聯絡人等主要訊息格式。部分特殊訊息類型的顯示方式可能有所不同。</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>圖片和貼圖會顯示嗎？</summary>
+        <div class="faq-answer">
+          <p>macOS 版 LINE 已快取的圖片和貼圖可以顯示。若快取已被清除，將顯示縮圖或預設圖片。由於 LINE 的規格限制，較舊的圖片資料可能無法取得。</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>需要網路連線嗎？</summary>
+        <div class="faq-answer">
+          <p>不需要，此應用程式完全離線運作。LineArchive 不進行任何網路通訊。即使沒有網路連線，也可以使用所有功能。</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== Privacy ===== -->
+<section id="privacy">
+  <div class="container">
+    <h2 class="section-title">隱私權政策</h2>
+    <p class="section-subtitle">我們重視您的資料隱私</p>
+    <div class="legal-content">
+      <h3>資料收集</h3>
+      <p>LineArchive 不收集任何個人資訊或聊天資料。所有資料處理皆在您的裝置上本機完成。</p>
+
+      <h3>網路通訊</h3>
+      <p>本應用程式不進行任何網路通訊。無需網路連線即可完全運作。</p>
+
+      <h3>加密金鑰處理</h3>
+      <p>用於 LINE 資料庫解密的加密金鑰僅在處理期間於記憶體中使用，不會儲存至磁碟。</p>
+
+      <h3>第三方分享</h3>
+      <p>我們不會向任何第三方提供、分享或出售使用者資料。</p>
+
+      <p style="margin-top: 1.5rem;"><a href="privacy.html">閱讀完整隱私權政策 &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Terms ===== -->
+<section id="terms">
+  <div class="container">
+    <h2 class="section-title">使用條款</h2>
+    <div class="legal-content">
+      <h3>授權</h3>
+      <p>LineArchive 以 MIT 授權條款提供。</p>
+
+      <h3>免責聲明</h3>
+      <p>本應用程式與 LINE Corporation（LY Corporation）無任何關聯。LINE 為各權利人之註冊商標。開發者對因使用本應用程式所產生之任何損害不負任何責任。</p>
+
+      <h3>使用者責任</h3>
+      <p>使用本應用程式時，請遵守您所在地區的法律及規範。聊天資料的備份與瀏覽應限於個人使用範圍。</p>
+
+      <p style="margin-top: 1.5rem;"><a href="terms.html">閱讀完整使用條款 &rarr;</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact ===== -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title">聯絡我們</h2>
+    <p class="section-subtitle">如有任何問題或建議，歡迎與我們聯繫</p>
+    <div class="contact-buttons">
+      <a href="https://forms.gle/PLACEHOLDER" class="btn btn-primary" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        聯絡表單
+      </a>
+      <a href="https://github.com/mgmgperson/LineArchive" class="btn btn-secondary" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <ul class="footer-links">
+    <li><a href="privacy.html">隱私權政策</a></li>
+    <li><a href="terms.html">使用條款</a></li>
+    <li><a href="https://github.com/mgmgperson/LineArchive" target="_blank" rel="noopener">GitHub</a></li>
+  </ul>
+  <p>&copy; 2025 LineArchive. All rights reserved.</p>
+</footer>
+
+<!-- ===== Minimal JS ===== -->
+<script>
+// Mobile nav toggle
+document.querySelector('.nav-toggle').addEventListener('click', function () {
+  const nav = document.getElementById('site-nav');
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('open');
+});
+
+// Platform tabs
+document.querySelectorAll('.platform-tab').forEach(function (tab) {
+  tab.addEventListener('click', function () {
+    document.querySelectorAll('.platform-tab').forEach(function (t) { t.classList.remove('active'); });
+    document.querySelectorAll('.platform-content').forEach(function (c) { c.classList.remove('active'); });
+    this.classList.add('active');
+    document.getElementById('platform-' + this.dataset.platform).classList.add('active');
+  });
+});
+
+// Close mobile nav on link click
+document.querySelectorAll('.site-nav a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    document.getElementById('site-nav').classList.remove('open');
+    document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>
