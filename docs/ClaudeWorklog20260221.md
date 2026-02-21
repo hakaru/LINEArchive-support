@@ -55,3 +55,25 @@
 ## 12:49 - commit push 開始
 - Geminiレビュー実行後、commit & push 予定
 - 対象: en/, zh-Hant/, th/ の9ファイル新規追加 + ワークログ更新
+
+## 12:51 - 言語自動切り替え + iOS非対応対応
+- ユーザーリクエスト: ブラウザ言語による自動リダイレクト、iOS関連コンテンツ削除
+- 要件確認・プラン策定中
+
+## 12:53 - 言語自動切り替え + iOS非対応対応 実装開始
+- プラン承認済み、4ファイル編集に着手
+- 変更対象: index.html, en/index.html, zh-Hant/index.html, th/index.html
+- 内容: iOS関連コンテンツ削除 + ルートindex.htmlに言語リダイレクトJS追加
+
+## 12:57 - 言語自動切り替え + iOS非対応対応 実装完了
+- 全4ファイル編集完了
+- 各ファイルの変更内容:
+  - `index.html`: 言語リダイレクトJS追加(head内)、meta descriptionからiOS削除、iOSバッジ削除、「デバイス間データ共有」→「データのエクスポート・インポート」に変更、タブUI・iOSタブ・iOS手順全削除、タブ切り替えJS削除
+  - `en/index.html`: meta descriptionからiOS削除、iOSバッジ削除、「Cross-Device Data Sharing」→「Data Export & Import」に変更、タブUI・iOS手順全削除、タブ切り替えJS削除
+  - `zh-Hant/index.html`: meta descriptionからiOS削除、iOSバッジ削除、「跨裝置資料共享」→「資料匯出與匯入」に変更、タブUI・iOS手順全削除、タブ切り替えJS削除
+  - `th/index.html`: meta descriptionからiOS削除、iOSバッジ削除、「แชร์ข้อมูลข้ามอุปกรณ์」→「ส่งออกและนำเข้าข้อมูล」に変更、タブUI・iOS手順全削除、タブ切り替えJS削除
+- 検証: grep検索でiOS/platform-tab/platform-ios関連文字列が全index.htmlから消えていることを確認
+
+## 12:59 - GA4タグ追加
+- 全HTMLファイルにGoogle Analytics 4タグ (G-7NHBDYBWEY) を追加
+- 対象: index.html, privacy.html, terms.html, en/index.html, en/privacy.html, en/terms.html, zh-Hant/index.html, zh-Hant/privacy.html, zh-Hant/terms.html, th/index.html, th/privacy.html, th/terms.html
