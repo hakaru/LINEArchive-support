@@ -2,7 +2,7 @@
   <rect width="512" height="512" rx="96" fill="#111111"/>
   <text x="256" y="210" text-anchor="middle" dominant-baseline="central"
         font-family="system-ui,-apple-system,BlinkMacSystemFont,sans-serif"
-        font-weight="800" font-size="148" fill="#06C755">Line</text>
+        font-weight="800" font-size="148" fill="#06C755">Chat</text>
   <text x="256" y="350" text-anchor="middle" dominant-baseline="central"
         font-family="system-ui,-apple-system,BlinkMacSystemFont,sans-serif"
         font-weight="800" font-size="118" fill="#ffffff">Archive</text>
