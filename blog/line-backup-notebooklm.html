@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NHBDYBWEY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7NHBDYBWEY');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LINEのトーク履歴をNotebookLMにアップロードしてAI分析する方法</title>
+  <meta name="description" content="LINEのトーク履歴をテキストエクスポートし、Google NotebookLMにアップロードしてAIで分析・要約・質問する方法を解説。思い出の振り返りや情報整理に活用できます。">
+  <meta property="og:title" content="LINEのトーク履歴をNotebookLMにアップロードしてAI分析する方法">
+  <meta property="og:description" content="LINEのチャット履歴をNotebookLMに読み込ませて、AIに要約・検索・分析してもらう手順を完全ガイド。">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../images/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../images/icon-180.png">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ===== Blog-specific styles ===== */
+    .blog-article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .blog-header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .blog-header h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+
+    .blog-meta {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+    }
+
+    .blog-article h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 3rem 0 1rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--color-primary-light);
+    }
+
+    .blog-article h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 2rem 0 0.75rem;
+    }
+
+    .blog-article p {
+      font-size: 0.95rem;
+      color: var(--color-text-secondary);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    .blog-article ul,
+    .blog-article ol {
+      font-size: 0.95rem;
+      color: var(--color-text-secondary);
+      line-height: 1.85;
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    .blog-article li {
+      margin-bottom: 0.4rem;
+    }
+
+    .blog-article strong {
+      color: var(--color-text);
+    }
+
+    /* Screenshot placeholders */
+    .screenshot {
+      margin: 1.5rem 0;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--color-bg-alt);
+    }
+
+    .screenshot img {
+      width: 100%;
+      display: block;
+    }
+
+    .screenshot-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 320px;
+      color: var(--color-text-secondary);
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .screenshot-caption {
+      font-size: 0.8rem;
+      color: var(--color-text-secondary);
+      text-align: center;
+      padding: 0.5rem 1rem 0.75rem;
+      background: var(--color-bg);
+      border-top: 1px solid var(--color-border);
+    }
+
+    /* Step cards */
+    .blog-step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: var(--color-bg);
+    }
+
+    .blog-step-number {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .blog-step-body h3 {
+      margin: 0 0 0.25rem;
+      font-size: 1rem;
+    }
+
+    .blog-step-body p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Info / Warning boxes */
+    .info-box {
+      padding: 1rem 1.25rem;
+      border-radius: 10px;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .info-box p {
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .info-box.tip {
+      background: var(--color-primary-light);
+      border-left: 4px solid var(--color-primary);
+    }
+
+    .info-box.warning {
+      background: #fff8e6;
+      border-left: 4px solid #f0ad4e;
+    }
+
+    .info-box.note {
+      background: #eef3ff;
+      border-left: 4px solid #4a90d9;
+    }
+
+    /* Feature highlight list */
+    .feature-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .feature-list li {
+      padding: 0.5rem 0 0.5rem 1.75rem;
+      position: relative;
+    }
+
+    .feature-list li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-weight: 700;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .toc h2 {
+      font-size: 1rem;
+      margin: 0 0 0.75rem;
+      padding: 0;
+      border: none;
+    }
+
+    .toc ol {
+      margin: 0;
+      padding-left: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .toc li {
+      margin-bottom: 0.35rem;
+    }
+
+    .toc a {
+      color: var(--color-text-secondary);
+    }
+
+    .toc a:hover {
+      color: var(--color-primary);
+    }
+
+    /* CTA section */
+    .blog-cta {
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--color-primary-light) 0%, #fff 100%);
+      border: 1px solid var(--color-border);
+    }
+
+    .blog-cta h2 {
+      border: none;
+      margin: 0 0 0.5rem;
+      font-size: 1.3rem;
+    }
+
+    .blog-cta p {
+      margin-bottom: 1.25rem;
+    }
+
+    /* Code block */
+    .code-sample {
+      background: #1e1e1e;
+      color: #d4d4d4;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      font-size: 0.8rem;
+      line-height: 1.6;
+      overflow-x: auto;
+      white-space: pre;
+    }
+
+    /* Prompt examples */
+    .prompt-example {
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      color: var(--color-text);
+    }
+
+    .prompt-example::before {
+      content: "Q: ";
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumb a {
+      color: var(--color-text-secondary);
+    }
+
+    .breadcrumb a:hover {
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 768px) {
+      .blog-header h1 {
+        font-size: 1.4rem;
+      }
+
+      .blog-article h2 {
+        font-size: 1.2rem;
+      }
+
+      .screenshot-placeholder {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="../" class="logo"><span>Chat</span>Archive</a>
+    <button class="nav-toggle" aria-label="メニュー" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="site-nav" id="site-nav">
+        <li><a href="../#features">機能</a></li>
+        <li><a href="../#howto">使い方</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+        <li><a href="../#privacy">プライバシー</a></li>
+        <li><a href="../#contact">お問い合わせ</a></li>
+        <li><a href="./">ブログ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Blog Article ===== -->
+<article class="blog-article">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="../">ホーム</a> &gt; <a href="./">ブログ</a> &gt; LINEトーク履歴 &times; NotebookLM
+  </nav>
+
+  <!-- Blog Header -->
+  <header class="blog-header">
+    <h1>LINEのトーク履歴をNotebookLMにアップロードしてAI分析する方法</h1>
+    <p class="blog-meta">公開日: 2025年2月22日 &#x30FB; 読了目安: 8分</p>
+  </header>
+
+  <!-- Introduction -->
+  <p>何年分ものLINEトーク履歴、眠らせていませんか？ Googleの<strong>NotebookLM</strong>にアップロードすれば、AIが膨大なチャット履歴を要約・分析・検索してくれます。</p>
+  <p>この記事では、LINEのトーク履歴をエクスポートし、NotebookLMに読み込ませてAI分析する手順を解説します。</p>
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>目次</h2>
+    <ol>
+      <li><a href="#what">NotebookLMとは</a></li>
+      <li><a href="#what-can">何ができるのか &#8212; 活用シーン</a></li>
+      <li><a href="#prepare">事前に必要なもの</a></li>
+      <li><a href="#export-line">Step 1: LINEからトーク履歴をエクスポート</a></li>
+      <li><a href="#export-chatarchive">ChatArchiveを使ったエクスポート</a></li>
+      <li><a href="#upload">Step 2: NotebookLMにアップロード</a></li>
+      <li><a href="#analyze">Step 3: AIに質問・分析してもらう</a></li>
+      <li><a href="#prompts">使えるプロンプト集</a></li>
+      <li><a href="#privacy-note">プライバシーに関する注意</a></li>
+      <li><a href="#tips">さらに活用するヒント</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. NotebookLMとは -->
+  <h2 id="what">1. NotebookLMとは</h2>
+  <p><strong>NotebookLM</strong>は、Googleが提供するAI搭載のリサーチ・ノートツールです。PDFやテキストファイルなどのドキュメントをアップロードすると、AIがその内容を理解し、要約・質問応答・分析を行ってくれます。</p>
+
+  <ul class="feature-list">
+    <li>アップロードしたソースの内容だけをもとに回答（ハルシネーションが少ない）</li>
+    <li>テキストファイル（.txt）、PDF、Googleドキュメント、Webページなど多数の形式に対応</li>
+    <li>1ソースあたり最大50万語・200MBまで対応</li>
+    <li>無料プランで50ソースまでアップロード可能</li>
+    <li>Googleアカウントがあればすぐに利用可能</li>
+  </ul>
+
+  <div class="info-box tip">
+    <p><strong>ポイント:</strong> NotebookLMはアップロードしたドキュメントの内容「だけ」を参照して回答します。一般的なAIチャットと異なり、ソース外の情報を混ぜないため、チャット履歴の分析に適しています。</p>
+  </div>
+
+  <!-- 2. 何ができるのか -->
+  <h2 id="what-can">2. 何ができるのか &#8212; 活用シーン</h2>
+  <p>LINEのトーク履歴をNotebookLMに読み込ませると、こんなことができます。</p>
+
+  <h3>思い出の振り返り</h3>
+  <p>「2023年の夏、何の話をしていた？」「旅行の計画はどこで決まった？」など、膨大なトークから特定の話題をAIが探し出してくれます。</p>
+
+  <h3>情報の整理・発掘</h3>
+  <p>「共有されたレストランの名前を全部リストアップして」「引っ越しの手続きで話していた内容をまとめて」など、散らばった情報を構造化できます。</p>
+
+  <h3>会話の要約</h3>
+  <p>長いグループチャットの要点を抽出。「先月の会話を要約して」で、読む必要のないメッセージをスキップできます。</p>
+
+  <h3>感情分析・傾向の把握</h3>
+  <p>「会話のトーンは時期によって変わった？」「よく使う言葉のパターンは？」など、メタ的な分析も可能です。</p>
+
+  <!-- 3. 事前に必要なもの -->
+  <h2 id="prepare">3. 事前に必要なもの</h2>
+  <ul>
+    <li><strong>Googleアカウント</strong>（NotebookLMの利用に必要）</li>
+    <li><strong>LINE</strong>がインストールされたスマートフォンまたはPC</li>
+    <li><strong>PCのブラウザ</strong>（NotebookLMはPCブラウザで利用）</li>
+  </ul>
+
+  <!-- 4. LINEからエクスポート -->
+  <h2 id="export-line">4. Step 1: LINEからトーク履歴をエクスポート</h2>
+  <p>LINEにはトーク履歴をテキストファイル（.txt）でエクスポートする機能が標準搭載されています。</p>
+
+  <h3>iPhone / Androidの場合</h3>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>トークルームを開く</h3>
+      <p>エクスポートしたいトークルームを開きます。</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>メニューから「トーク履歴を送信」</h3>
+      <p>画面右上の <strong>&#8801;</strong>（メニュー）をタップ &gt; <strong>その他</strong> &gt; <strong>トーク履歴を送信</strong> を選択します。</p>
+    </div>
+  </div>
+
+  <div class="screenshot">
+    <div class="screenshot-placeholder">[ スクリーンショット: LINEのトーク履歴送信メニュー ]</div>
+    <div class="screenshot-caption">トークルーム &gt; メニュー &gt; その他 &gt; トーク履歴を送信</div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>保存先を選択</h3>
+      <p>「ファイルに保存」や「メールで送信」など、PCに転送しやすい方法を選びます。AirDrop、Googleドライブ、メール添付が便利です。</p>
+    </div>
+  </div>
+
+  <div class="info-box note">
+    <p><strong>エクスポート形式:</strong> LINEのトーク履歴エクスポートは <strong>.txt（テキスト）形式</strong> です。日付・時刻・送信者名・メッセージが時系列で記録されます。画像や動画は含まれません。</p>
+  </div>
+
+  <h3>PC版LINE（Windows / Mac）の場合</h3>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>トークルームを開く</h3>
+      <p>PC版LINEでエクスポートしたいトークルームを開きます。</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>「トークを保存」を選択</h3>
+      <p>画面右上の <strong>&#8801;</strong>（メニュー）&gt; <strong>トークを保存</strong> をクリックし、保存先を選択します。</p>
+    </div>
+  </div>
+
+  <h3>エクスポートされるファイルの中身</h3>
+  <p>エクスポートされたテキストファイルは、以下のような形式になっています。</p>
+
+  <div class="code-sample">[LINE] Aさんとのトーク履歴
+保存日時：2025/02/22 15:30
+
+2024/01/15 Mon
+10:23	Aさん	おはよう！今日のランチどうする？
+10:24	自分	パスタがいいな
+10:25	Aさん	いいね！駅前の新しいイタリアンは？
+10:26	自分	行ってみよう！12時に集合で
+10:27	Aさん	了解！
+
+2024/01/16 Tue
+09:15	Aさん	昨日のパスタ美味しかったね
+09:16	自分	また行きたい！</div>
+
+  <!-- 5. ChatArchiveを使ったエクスポート -->
+  <h2 id="export-chatarchive">5. ChatArchiveを使ったエクスポート</h2>
+  <p>LINEの標準エクスポートは<strong>1トークルームずつ</strong>の手動操作が必要です。トークルームが多い場合、<strong>ChatArchive</strong>を使えば全トークを一括でバックアップできます。</p>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>ChatArchiveでLINEデータを読み込み</h3>
+      <p>ChatArchiveを起動し「読み込み」をクリック。LINEのデータベースを自動検出して一括読み込みします。</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>.chatarchive形式でエクスポート</h3>
+      <p>エクスポート機能で全トーク履歴をまとめて保存。必要に応じてテキスト化してNotebookLMに投入できます。</p>
+    </div>
+  </div>
+
+  <div class="info-box tip">
+    <p><strong>ChatArchiveのメリット:</strong> 全トークルームを一括でバックアップできるため、100以上のトークルームがある場合でも一度の操作で完了します。完全ローカル処理なのでプライバシーも安心です。<br><a href="chatarchive-getting-started.html">ChatArchiveの詳しい使い方はこちら</a></p>
+  </div>
+
+  <!-- 6. NotebookLMにアップロード -->
+  <h2 id="upload">6. Step 2: NotebookLMにアップロード</h2>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>NotebookLMを開く</h3>
+      <p>ブラウザで <strong>notebooklm.google.com</strong> にアクセスし、Googleアカウントでログインします。</p>
+    </div>
+  </div>
+
+  <div class="screenshot">
+    <div class="screenshot-placeholder">[ スクリーンショット: NotebookLMのトップ画面 ]</div>
+    <div class="screenshot-caption">NotebookLMのトップ画面</div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>新しいノートブックを作成</h3>
+      <p>「新しいノートブック」をクリックして、新規ノートブックを作成します。名前は「LINEトーク分析」など、わかりやすいものにしましょう。</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>ソースをアップロード</h3>
+      <p>「ソースを追加」から <strong>「ファイルをアップロード」</strong> を選択し、先ほどエクスポートした .txt ファイルをアップロードします。</p>
+    </div>
+  </div>
+
+  <div class="screenshot">
+    <div class="screenshot-placeholder">[ スクリーンショット: NotebookLMのソース追加画面 ]</div>
+    <div class="screenshot-caption">「ソースを追加」からテキストファイルをアップロード</div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">4</div>
+    <div class="blog-step-body">
+      <h3>複数ファイルもOK</h3>
+      <p>トークルームごとにエクスポートした場合、複数の .txt ファイルをまとめてアップロードできます。無料プランで<strong>最大50ファイル</strong>まで追加可能です。</p>
+    </div>
+  </div>
+
+  <div class="info-box warning">
+    <p><strong>ファイルサイズの上限:</strong> 1ファイルあたり <strong>200MB</strong>、<strong>50万語</strong> まで対応しています。数年分のトーク履歴でも十分収まるサイズですが、超える場合は期間で分割してください。</p>
+  </div>
+
+  <!-- 7. AIに質問・分析 -->
+  <h2 id="analyze">7. Step 3: AIに質問・分析してもらう</h2>
+  <p>アップロードが完了すると、NotebookLMがソースを解析します。画面下部のチャット欄から、自然言語で質問するだけでAIが回答してくれます。</p>
+
+  <div class="screenshot">
+    <div class="screenshot-placeholder">[ スクリーンショット: NotebookLMのチャット画面で質問している様子 ]</div>
+    <div class="screenshot-caption">チャット欄にプロンプトを入力してAIに質問</div>
+  </div>
+
+  <h3>NotebookLM自動生成の概要</h3>
+  <p>ソースをアップロードすると、NotebookLMが自動的に<strong>ソースの概要</strong>を生成します。これだけでもチャット履歴の全体像を把握できます。</p>
+
+  <h3>引用付きの回答</h3>
+  <p>NotebookLMの回答には<strong>ソースへの引用</strong>が付きます。AIの回答がどのメッセージに基づいているか確認できるため、事実確認が容易です。</p>
+
+  <!-- 8. プロンプト集 -->
+  <h2 id="prompts">8. 使えるプロンプト集</h2>
+  <p>NotebookLMに投げると便利なプロンプトの例を紹介します。コピーしてそのまま使えます。</p>
+
+  <h3>要約・振り返り</h3>
+  <div class="prompt-example">この会話全体を時系列で要約してください</div>
+  <div class="prompt-example">2024年で最も盛り上がった話題は何ですか？</div>
+  <div class="prompt-example">この1年間の会話の主なトピックをリストアップしてください</div>
+
+  <h3>情報検索</h3>
+  <div class="prompt-example">会話の中で共有されたお店の名前を全て抽出してください</div>
+  <div class="prompt-example">旅行に関する会話をまとめてください</div>
+  <div class="prompt-example">約束や予定に関するメッセージを日付順にリストアップして</div>
+
+  <h3>分析</h3>
+  <div class="prompt-example">会話の中で最も頻繁に出てくるトピックは何ですか？</div>
+  <div class="prompt-example">会話のトーンや雰囲気は時期によって変化していますか？</div>
+  <div class="prompt-example">この会話の参加者それぞれの特徴を分析してください</div>
+
+  <h3>実用的な活用</h3>
+  <div class="prompt-example">会話の中で共有されたURLを全てリストアップしてください</div>
+  <div class="prompt-example">引っ越しに関連する会話を全て抽出して、時系列でまとめてください</div>
+  <div class="prompt-example">この会話の中で言及されたレシピや料理の情報をまとめて</div>
+
+  <!-- 9. プライバシーに関する注意 -->
+  <h2 id="privacy-note">9. プライバシーに関する注意</h2>
+
+  <div class="info-box warning">
+    <p><strong>重要:</strong> トーク履歴には個人情報が含まれます。以下の点を理解した上でご利用ください。</p>
+  </div>
+
+  <h3>NotebookLMのデータ取り扱い</h3>
+  <ul>
+    <li>Googleのプライバシーポリシーに基づいてデータが処理されます</li>
+    <li>アップロードしたデータは自分のアカウントに紐づき、他のユーザーには公開されません</li>
+    <li>ノートブックを削除すればデータも削除されます</li>
+  </ul>
+
+  <h3>アップロード前にやるべきこと</h3>
+  <ul>
+    <li><strong>相手の同意:</strong> 他者との会話をAIに読み込ませることについて、可能であれば相手に確認を取りましょう</li>
+    <li><strong>個人情報の確認:</strong> 住所、電話番号、パスワードなどの機密情報が含まれていないか確認してください</li>
+    <li><strong>利用目的の限定:</strong> 個人的な振り返り・整理の範囲内で利用し、会話内容を第三者に共有しないでください</li>
+  </ul>
+
+  <div class="info-box tip">
+    <p><strong>ローカルで分析したい場合:</strong> クラウドにデータをアップロードしたくない方は、<strong>ChatArchive</strong>の全文検索機能を使えば、完全にローカル環境で履歴の検索・閲覧が可能です。</p>
+  </div>
+
+  <!-- 10. さらに活用するヒント -->
+  <h2 id="tips">10. さらに活用するヒント</h2>
+
+  <h3>複数人のグループトークを分析</h3>
+  <p>グループトークのエクスポートも同様の手順で可能です。「各メンバーの発言傾向を分析して」と聞くと、グループ内のコミュニケーションパターンが見えてきます。</p>
+
+  <h3>複数トークルームを横断分析</h3>
+  <p>複数のトークルームのテキストファイルを同じノートブックにアップロードすれば、トークルーム横断で情報を検索・分析できます。</p>
+
+  <h3>Audio Overview（音声概要）を活用</h3>
+  <p>NotebookLMには、ソースの内容をもとにポッドキャスト風の音声を自動生成する「Audio Overview」機能があります。長いチャット履歴の内容を音声で聞き流すこともできます。</p>
+
+  <h3>定期的なバックアップと分析</h3>
+  <p>月に一度トーク履歴をエクスポートしてNotebookLMに追加していけば、時系列での変化も追えるようになります。</p>
+
+  <!-- CTA -->
+  <div class="blog-cta">
+    <h2>ChatArchiveで全トークを一括バックアップ</h2>
+    <p>1トークずつ手動エクスポートしなくても、ChatArchiveなら全トーク履歴をワンクリックでバックアップ。</p>
+    <div class="hero-buttons">
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/22d0c5ae-3b31-4834-837d-7373fd1d5bba" class="btn-hero btn-download" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        ダウンロード
+      </a>
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/0faa7a8a-2f47-44e5-a56a-ae86200714d8" class="btn-hero btn-license" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        ライセンスを購入
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <ul class="footer-links">
+    <li><a href="../privacy.html">プライバシーポリシー</a></li>
+    <li><a href="../terms.html">利用規約</a></li>
+  </ul>
+  <p>&copy; 2025 ChatArchive. All rights reserved.</p>
+</footer>
+
+<!-- ===== Minimal JS ===== -->
+<script>
+document.querySelector('.nav-toggle').addEventListener('click', function () {
+  const nav = document.getElementById('site-nav');
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('open');
+});
+
+document.querySelectorAll('.site-nav a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    document.getElementById('site-nav').classList.remove('open');
+    document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>
