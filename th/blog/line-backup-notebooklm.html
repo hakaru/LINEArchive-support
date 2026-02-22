@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NHBDYBWEY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7NHBDYBWEY');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>วิธีอัปโหลดประวัติแชท LINE ไปยัง NotebookLM เพื่อวิเคราะห์ด้วย AI</title>
+  <meta name="description" content="วิธีส่งออกประวัติแชท LINE เป็นไฟล์ข้อความ แล้วอัปโหลดไปยัง Google NotebookLM เพื่อให้ AI วิเคราะห์ สรุป และตอบคำถาม เหมาะสำหรับรำลึกความทรงจำและจัดระเบียบข้อมูล">
+  <meta property="og:title" content="วิธีอัปโหลดประวัติแชท LINE ไปยัง NotebookLM เพื่อวิเคราะห์ด้วย AI">
+  <meta property="og:description" content="คู่มือฉบับสมบูรณ์สำหรับการโหลดประวัติแชท LINE เข้าสู่ NotebookLM เพื่อให้ AI สรุป ค้นหา และวิเคราะห์">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../images/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../../images/icon-180.png">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/blog.css">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="../" class="logo"><span>Chat</span>Archive</a>
+    <button class="nav-toggle" aria-label="เมนู" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="site-nav" id="site-nav">
+        <li><a href="../#features">คุณสมบัติ</a></li>
+        <li><a href="../#howto">วิธีใช้</a></li>
+        <li><a href="../#faq">คำถามที่พบบ่อย</a></li>
+        <li><a href="../#privacy">ความเป็นส่วนตัว</a></li>
+        <li><a href="../#contact">ติดต่อเรา</a></li>
+        <li><a href="./">บล็อก</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Blog Article ===== -->
+<article class="blog-article">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="../">หน้าแรก</a> &gt; <a href="./">บล็อก</a> &gt; ประวัติแชท LINE &times; NotebookLM
+  </nav>
+
+  <!-- Blog Header -->
+  <header class="blog-header">
+    <h1>วิธีอัปโหลดประวัติแชท LINE ไปยัง NotebookLM เพื่อวิเคราะห์ด้วย AI</h1>
+    <p class="blog-meta">เผยแพร่: 22 กุมภาพันธ์ 2025 &#x30FB; เวลาอ่าน: 8 นาที</p>
+  </header>
+
+  <!-- Introduction -->
+  <p>คุณปล่อยให้ประวัติแชท LINE หลายปีนอนเฉยๆ อยู่หรือเปล่า? หากอัปโหลดไปยัง <strong>NotebookLM</strong> ของ Google AI จะช่วยสรุป วิเคราะห์ และค้นหาข้อมูลจากประวัติแชทจำนวนมหาศาลให้คุณได้</p>
+  <p>บทความนี้จะอธิบายขั้นตอนการส่งออกประวัติแชทจาก LINE แล้วนำเข้าสู่ NotebookLM เพื่อให้ AI วิเคราะห์</p>
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>สารบัญ</h2>
+    <ol>
+      <li><a href="#what">NotebookLM คืออะไร</a></li>
+      <li><a href="#what-can">ทำอะไรได้บ้าง &#8212; กรณีการใช้งาน</a></li>
+      <li><a href="#prepare">สิ่งที่ต้องเตรียม</a></li>
+      <li><a href="#export-line">ขั้นตอนที่ 1: ส่งออกประวัติแชทจาก LINE</a></li>
+      <li><a href="#export-chatarchive">ส่งออกด้วย ChatArchive</a></li>
+      <li><a href="#upload">ขั้นตอนที่ 2: อัปโหลดไปยัง NotebookLM</a></li>
+      <li><a href="#analyze">ขั้นตอนที่ 3: ให้ AI ตอบคำถามและวิเคราะห์</a></li>
+      <li><a href="#prompts">ตัวอย่างพรอมต์ที่ใช้ได้</a></li>
+      <li><a href="#privacy-note">ข้อควรระวังด้านความเป็นส่วนตัว</a></li>
+      <li><a href="#tips">เคล็ดลับเพิ่มเติม</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. NotebookLM คืออะไร -->
+  <h2 id="what">1. NotebookLM คืออะไร</h2>
+  <p><strong>NotebookLM</strong> เป็นเครื่องมือวิจัยและจดบันทึกที่ขับเคลื่อนด้วย AI จาก Google เมื่ออัปโหลดเอกสาร เช่น PDF หรือไฟล์ข้อความ AI จะเข้าใจเนื้อหาและช่วยสรุป ตอบคำถาม และวิเคราะห์ให้</p>
+
+  <ul class="feature-list">
+    <li>ตอบคำถามจากเนื้อหาที่อัปโหลดเท่านั้น (ลดปัญหา Hallucination)</li>
+    <li>รองรับหลายรูปแบบ ทั้งไฟล์ข้อความ (.txt), PDF, Google Docs และเว็บเพจ</li>
+    <li>รองรับสูงสุด 500,000 คำ / 200MB ต่อไฟล์</li>
+    <li>แผนฟรีอัปโหลดได้สูงสุด 50 ไฟล์</li>
+    <li>ใช้งานได้ทันทีเมื่อมีบัญชี Google</li>
+  </ul>
+
+  <div class="info-box tip">
+    <p><strong>จุดเด่น:</strong> NotebookLM ตอบคำถามจากเอกสารที่อัปโหลด "เท่านั้น" ต่างจากแชทบอท AI ทั่วไปที่อาจผสมข้อมูลจากแหล่งอื่น จึงเหมาะกับการวิเคราะห์ประวัติแชทเป็นพิเศษ</p>
+  </div>
+
+  <!-- 2. ทำอะไรได้บ้าง -->
+  <h2 id="what-can">2. ทำอะไรได้บ้าง &#8212; กรณีการใช้งาน</h2>
+  <p>เมื่อนำเข้าประวัติแชท LINE เข้าสู่ NotebookLM แล้ว คุณสามารถทำสิ่งเหล่านี้ได้:</p>
+
+  <h3>ย้อนรำลึกความทรงจำ</h3>
+  <p>"ช่วงหน้าร้อนปี 2023 เราคุยเรื่องอะไรกัน?" "แผนเที่ยวตกลงกันตอนไหน?" AI จะค้นหาหัวข้อที่ต้องการจากบทสนทนามากมายให้คุณ</p>
+
+  <h3>จัดระเบียบและค้นพบข้อมูล</h3>
+  <p>"รวบรวมชื่อร้านอาหารที่แชร์กันมาทั้งหมด" "สรุปเรื่องที่คุยกันตอนย้ายบ้าน" สามารถจัดโครงสร้างข้อมูลที่กระจัดกระจายได้</p>
+
+  <h3>สรุปบทสนทนา</h3>
+  <p>ดึงประเด็นสำคัญจากแชทกลุ่มที่ยาว แค่พิมพ์ "สรุปบทสนทนาเดือนที่แล้ว" ก็ข้ามข้อความที่ไม่จำเป็นต้องอ่านได้</p>
+
+  <h3>วิเคราะห์อารมณ์และแนวโน้ม</h3>
+  <p>"โทนของบทสนทนาเปลี่ยนไปตามช่วงเวลาไหม?" "มีรูปแบบคำที่ใช้บ่อยอะไรบ้าง?" สามารถวิเคราะห์ในเชิงลึกได้ด้วย</p>
+
+  <!-- 3. สิ่งที่ต้องเตรียม -->
+  <h2 id="prepare">3. สิ่งที่ต้องเตรียม</h2>
+  <ul>
+    <li><strong>บัญชี Google</strong> (จำเป็นสำหรับการใช้ NotebookLM)</li>
+    <li><strong>LINE</strong> ที่ติดตั้งบนสมาร์ทโฟนหรือ PC</li>
+    <li><strong>เบราว์เซอร์บน PC</strong> (NotebookLM ใช้งานผ่านเบราว์เซอร์บน PC)</li>
+  </ul>
+
+  <!-- 4. ส่งออกจาก LINE -->
+  <h2 id="export-line">4. ขั้นตอนที่ 1: ส่งออกประวัติแชทจาก LINE</h2>
+  <p>LINE มีฟีเจอร์ส่งออกประวัติแชทเป็นไฟล์ข้อความ (.txt) ในตัว</p>
+
+  <h3>กรณี iPhone / Android</h3>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>เปิดห้องแชท</h3>
+      <p>เปิดห้องแชทที่ต้องการส่งออก</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>เลือก "ส่งประวัติแชท" จากเมนู</h3>
+      <p>แตะ <strong>&#8801;</strong> (เมนู) มุมขวาบน &gt; <strong>อื่นๆ</strong> &gt; <strong>ส่งประวัติแชท</strong></p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>เลือกปลายทาง</h3>
+      <p>เลือกวิธีที่สะดวกในการส่งไปยัง PC เช่น "บันทึกลงไฟล์" หรือ "ส่งทางอีเมล" AirDrop, Google Drive หรือแนบอีเมลจะสะดวกที่สุด</p>
+    </div>
+  </div>
+
+  <div class="info-box note">
+    <p><strong>รูปแบบการส่งออก:</strong> ประวัติแชท LINE จะถูกส่งออกเป็น<strong>ไฟล์ข้อความ (.txt)</strong> บันทึกวันที่ เวลา ชื่อผู้ส่ง และข้อความตามลำดับเวลา ไม่รวมรูปภาพและวิดีโอ</p>
+  </div>
+
+  <h3>กรณี LINE บน PC (Windows / Mac)</h3>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>เปิดห้องแชท</h3>
+      <p>เปิดห้องแชทที่ต้องการส่งออกใน LINE บน PC</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>เลือก "บันทึกแชท"</h3>
+      <p>คลิก <strong>&#8801;</strong> (เมนู) มุมขวาบน &gt; <strong>บันทึกแชท</strong> แล้วเลือกตำแหน่งที่จะบันทึก</p>
+    </div>
+  </div>
+
+  <h3>ตัวอย่างไฟล์ที่ส่งออก</h3>
+  <p>ไฟล์ข้อความที่ส่งออกจะมีรูปแบบดังนี้:</p>
+
+  <div class="code-sample">[LINE] Aさんとのトーク履歴
+保存日時：2025/02/22 15:30
+
+2024/01/15 Mon
+10:23	Aさん	おはよう！今日のランチどうする？
+10:24	自分	パスタがいいな
+10:25	Aさん	いいね！駅前の新しいイタリアンは？
+10:26	自分	行ってみよう！12時に集合で
+10:27	Aさん	了解！
+
+2024/01/16 Tue
+09:15	Aさん	昨日のパスタ美味しかったね
+09:16	自分	また行きたい！</div>
+
+  <!-- 5. ส่งออกด้วย ChatArchive -->
+  <h2 id="export-chatarchive">5. ส่งออกด้วย ChatArchive</h2>
+  <p>การส่งออกมาตรฐานของ LINE ต้อง<strong>ทำทีละห้องแชท</strong> หากมีห้องแชทจำนวนมาก <strong>ChatArchive</strong> ช่วยให้สำรองข้อมูลแชททั้งหมดได้ในครั้งเดียว</p>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>นำเข้าข้อมูล LINE ด้วย ChatArchive</h3>
+      <p>เปิด ChatArchive แล้วคลิก "นำเข้า" จะตรวจจับฐานข้อมูล LINE โดยอัตโนมัติและนำเข้าทั้งหมดในครั้งเดียว</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>ส่งออกในรูปแบบ .chatarchive</h3>
+      <p>ใช้ฟีเจอร์ส่งออกเพื่อบันทึกประวัติแชททั้งหมด สามารถแปลงเป็นข้อความเพื่อนำเข้า NotebookLM ได้ตามต้องการ</p>
+    </div>
+  </div>
+
+  <div class="info-box tip">
+    <p><strong>ข้อดีของ ChatArchive:</strong> สำรองข้อมูลได้ทุกห้องแชทในครั้งเดียว แม้มีมากกว่า 100 ห้องก็เสร็จในการดำเนินการเดียว ประมวลผลภายในเครื่องทั้งหมดจึงปลอดภัยเรื่องความเป็นส่วนตัว<br><a href="chatarchive-getting-started.html">ดูคู่มือการใช้งาน ChatArchive ฉบับเต็มที่นี่</a></p>
+  </div>
+
+  <!-- 6. อัปโหลดไปยัง NotebookLM -->
+  <h2 id="upload">6. ขั้นตอนที่ 2: อัปโหลดไปยัง NotebookLM</h2>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>เปิด NotebookLM</h3>
+      <p>เข้าไปที่ <strong>notebooklm.google.com</strong> ในเบราว์เซอร์ แล้วเข้าสู่ระบบด้วยบัญชี Google</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>สร้าง Notebook ใหม่</h3>
+      <p>คลิก "Notebook ใหม่" เพื่อสร้าง Notebook ใหม่ ตั้งชื่อให้จำง่าย เช่น "วิเคราะห์แชท LINE"</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>อัปโหลดแหล่งข้อมูล</h3>
+      <p>คลิก "เพิ่มแหล่งข้อมูล" แล้วเลือก <strong>"อัปโหลดไฟล์"</strong> จากนั้นอัปโหลดไฟล์ .txt ที่ส่งออกไว้ก่อนหน้า</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">4</div>
+    <div class="blog-step-body">
+      <h3>อัปโหลดหลายไฟล์ได้</h3>
+      <p>หากส่งออกแยกตามห้องแชท สามารถอัปโหลดไฟล์ .txt หลายไฟล์พร้อมกันได้ แผนฟรีเพิ่มได้สูงสุด <strong>50 ไฟล์</strong></p>
+    </div>
+  </div>
+
+  <div class="info-box warning">
+    <p><strong>จำกัดขนาดไฟล์:</strong> รองรับสูงสุด <strong>200MB</strong> และ <strong>500,000 คำ</strong> ต่อไฟล์ ประวัติแชทหลายปีมักอยู่ในขนาดนี้ แต่หากเกินขีดจำกัด ให้แบ่งไฟล์ตามช่วงเวลา</p>
+  </div>
+
+  <!-- 7. ให้ AI วิเคราะห์ -->
+  <h2 id="analyze">7. ขั้นตอนที่ 3: ให้ AI ตอบคำถามและวิเคราะห์</h2>
+  <p>เมื่ออัปโหลดเสร็จ NotebookLM จะวิเคราะห์แหล่งข้อมูล ถามคำถามด้วยภาษาธรรมชาติในช่องแชทด้านล่าง แล้ว AI จะตอบให้ทันที</p>
+
+  <h3>สรุปอัตโนมัติจาก NotebookLM</h3>
+  <p>เมื่ออัปโหลดแหล่งข้อมูล NotebookLM จะสร้าง<strong>ภาพรวมของแหล่งข้อมูล</strong>โดยอัตโนมัติ แค่นี้ก็เข้าใจภาพรวมของประวัติแชทได้แล้ว</p>
+
+  <h3>คำตอบพร้อมการอ้างอิง</h3>
+  <p>คำตอบของ NotebookLM จะมี<strong>การอ้างอิงถึงแหล่งข้อมูล</strong>แนบมาด้วย ทำให้ตรวจสอบได้ว่าคำตอบของ AI อิงจากข้อความใด ง่ายต่อการยืนยันข้อเท็จจริง</p>
+
+  <!-- 8. ตัวอย่างพรอมต์ -->
+  <h2 id="prompts">8. ตัวอย่างพรอมต์ที่ใช้ได้</h2>
+  <p>ตัวอย่างพรอมต์ที่เป็นประโยชน์สำหรับใช้กับ NotebookLM คัดลอกไปใช้ได้เลย</p>
+
+  <h3>สรุปและย้อนมอง</h3>
+  <div class="prompt-example">สรุปบทสนทนาทั้งหมดนี้ตามลำดับเวลา</div>
+  <div class="prompt-example">หัวข้อที่คุยกันมากที่สุดในปี 2024 คืออะไร?</div>
+  <div class="prompt-example">ลิสต์หัวข้อหลักของบทสนทนาในรอบหนึ่งปีที่ผ่านมา</div>
+
+  <h3>ค้นหาข้อมูล</h3>
+  <div class="prompt-example">รวบรวมชื่อร้านอาหารทั้งหมดที่แชร์กันในบทสนทนา</div>
+  <div class="prompt-example">สรุปบทสนทนาที่เกี่ยวกับการท่องเที่ยว</div>
+  <div class="prompt-example">ลิสต์ข้อความที่เกี่ยวกับนัดหมายหรือตารางเวลาตามลำดับวันที่</div>
+
+  <h3>วิเคราะห์</h3>
+  <div class="prompt-example">หัวข้อที่ปรากฏบ่อยที่สุดในบทสนทนาคืออะไร?</div>
+  <div class="prompt-example">โทนและบรรยากาศของบทสนทนาเปลี่ยนไปตามช่วงเวลาหรือไม่?</div>
+  <div class="prompt-example">วิเคราะห์ลักษณะเฉพาะของผู้เข้าร่วมบทสนทนาแต่ละคน</div>
+
+  <h3>การใช้งานจริง</h3>
+  <div class="prompt-example">ลิสต์ URL ทั้งหมดที่แชร์กันในบทสนทนา</div>
+  <div class="prompt-example">รวบรวมบทสนทนาทั้งหมดที่เกี่ยวกับการย้ายบ้าน แล้วสรุปตามลำดับเวลา</div>
+  <div class="prompt-example">สรุปข้อมูลสูตรอาหารหรือร้านอาหารที่พูดถึงในบทสนทนา</div>
+
+  <!-- 9. ข้อควรระวังด้านความเป็นส่วนตัว -->
+  <h2 id="privacy-note">9. ข้อควรระวังด้านความเป็นส่วนตัว</h2>
+
+  <div class="info-box warning">
+    <p><strong>สำคัญ:</strong> ประวัติแชทมีข้อมูลส่วนบุคคล โปรดทำความเข้าใจประเด็นต่อไปนี้ก่อนใช้งาน</p>
+  </div>
+
+  <h3>การจัดการข้อมูลของ NotebookLM</h3>
+  <ul>
+    <li>ข้อมูลถูกประมวลผลตามนโยบายความเป็นส่วนตัวของ Google</li>
+    <li>ข้อมูลที่อัปโหลดผูกกับบัญชีของคุณ ไม่เปิดเผยต่อผู้ใช้คนอื่น</li>
+    <li>หากลบ Notebook ข้อมูลก็จะถูกลบด้วย</li>
+  </ul>
+
+  <h3>สิ่งที่ควรทำก่อนอัปโหลด</h3>
+  <ul>
+    <li><strong>ขอความยินยอม:</strong> หากเป็นไปได้ ควรแจ้งคู่สนทนาเรื่องการนำบทสนทนาไปให้ AI วิเคราะห์</li>
+    <li><strong>ตรวจสอบข้อมูลส่วนบุคคล:</strong> ตรวจสอบว่าไม่มีข้อมูลอ่อนไหว เช่น ที่อยู่ เบอร์โทรศัพท์ รหัสผ่าน</li>
+    <li><strong>จำกัดวัตถุประสงค์:</strong> ใช้เพื่อทบทวนและจัดระเบียบส่วนตัวเท่านั้น ไม่ควรเปิดเผยเนื้อหาบทสนทนาให้บุคคลที่สาม</li>
+  </ul>
+
+  <div class="info-box tip">
+    <p><strong>หากต้องการวิเคราะห์แบบออฟไลน์:</strong> สำหรับผู้ที่ไม่ต้องการอัปโหลดข้อมูลขึ้นคลาวด์ สามารถใช้ฟีเจอร์ค้นหาแบบเต็มข้อความของ <strong>ChatArchive</strong> เพื่อค้นหาและเรียกดูประวัติแชทภายในเครื่องได้อย่างสมบูรณ์</p>
+  </div>
+
+  <!-- 10. เคล็ดลับเพิ่มเติม -->
+  <h2 id="tips">10. เคล็ดลับเพิ่มเติม</h2>
+
+  <h3>วิเคราะห์แชทกลุ่ม</h3>
+  <p>สามารถส่งออกแชทกลุ่มได้ด้วยวิธีเดียวกัน ลองถามว่า "วิเคราะห์แนวโน้มการพูดของสมาชิกแต่ละคน" จะเห็นรูปแบบการสื่อสารในกลุ่มได้</p>
+
+  <h3>วิเคราะห์ข้ามหลายห้องแชท</h3>
+  <p>อัปโหลดไฟล์ข้อความจากหลายห้องแชทลงใน Notebook เดียวกัน จะค้นหาและวิเคราะห์ข้อมูลข้ามห้องแชทได้</p>
+
+  <h3>ใช้ Audio Overview (สรุปเสียง)</h3>
+  <p>NotebookLM มีฟีเจอร์ "Audio Overview" ที่สร้างเสียงแนวพอดแคสต์จากเนื้อหาแหล่งข้อมูลโดยอัตโนมัติ ฟังสรุปประวัติแชทยาวๆ แบบฟังเพลินได้</p>
+
+  <h3>สำรองข้อมูลและวิเคราะห์เป็นประจำ</h3>
+  <p>หากส่งออกประวัติแชทเดือนละครั้งแล้วเพิ่มเข้า NotebookLM จะสามารถติดตามการเปลี่ยนแปลงตามลำดับเวลาได้</p>
+
+  <!-- CTA -->
+  <div class="blog-cta">
+    <h2>สำรองข้อมูลแชททั้งหมดด้วย ChatArchive</h2>
+    <p>ไม่ต้องส่งออกทีละแชทด้วยมืออีกต่อไป ChatArchive สำรองข้อมูลแชททั้งหมดให้ด้วยคลิกเดียว</p>
+    <div class="hero-buttons">
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/22d0c5ae-3b31-4834-837d-7373fd1d5bba" class="btn-hero btn-download" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        ดาวน์โหลด
+      </a>
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/0faa7a8a-2f47-44e5-a56a-ae86200714d8" class="btn-hero btn-license" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        ซื้อใบอนุญาต
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <ul class="footer-links">
+    <li><a href="../privacy.html">นโยบายความเป็นส่วนตัว</a></li>
+    <li><a href="../terms.html">ข้อกำหนดการใช้งาน</a></li>
+  </ul>
+  <p>&copy; 2025 ChatArchive. All rights reserved.</p>
+</footer>
+
+<!-- ===== Minimal JS ===== -->
+<script>
+document.querySelector('.nav-toggle').addEventListener('click', function () {
+  const nav = document.getElementById('site-nav');
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('open');
+});
+
+document.querySelectorAll('.site-nav a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    document.getElementById('site-nav').classList.remove('open');
+    document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>

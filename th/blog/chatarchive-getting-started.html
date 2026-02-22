@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NHBDYBWEY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7NHBDYBWEY');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>วิธีใช้ ChatArchive - คู่มือฉบับสมบูรณ์ตั้งแต่ติดตั้งจนถึงการใช้งาน</title>
+  <meta name="description" content="คู่มือการติดตั้งและวิธีใช้ ChatArchive อธิบายอย่างเข้าใจง่าย ตั้งแต่สำรองข้อมูลแชท เรียกดู ค้นหา ไปจนถึงส่งออก เริ่มต้นใช้งานได้ใน 3 ขั้นตอน">
+  <meta property="og:title" content="วิธีใช้ ChatArchive - คู่มือฉบับสมบูรณ์ตั้งแต่ติดตั้งจนถึงการใช้งาน">
+  <meta property="og:description" content="คู่มือการติดตั้งและวิธีใช้ ChatArchive อธิบายอย่างเข้าใจง่าย เริ่มต้นใช้งานได้ใน 3 ขั้นตอน">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../images/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../../images/icon-180.png">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/blog.css">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="../" class="logo"><span>Chat</span>Archive</a>
+    <button class="nav-toggle" aria-label="เมนู" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="site-nav" id="site-nav">
+        <li><a href="../#features">คุณสมบัติ</a></li>
+        <li><a href="../#howto">วิธีใช้</a></li>
+        <li><a href="../#faq">คำถามที่พบบ่อย</a></li>
+        <li><a href="../#privacy">ความเป็นส่วนตัว</a></li>
+        <li><a href="../#contact">ติดต่อเรา</a></li>
+        <li><a href="./">บล็อก</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Blog Article ===== -->
+<article class="blog-article">
+
+  <!-- Blog Header -->
+  <header class="blog-header">
+    <h1>วิธีใช้ ChatArchive &#8212; คู่มือฉบับสมบูรณ์ตั้งแต่ติดตั้งจนถึงการใช้งาน</h1>
+    <p class="blog-meta">เผยแพร่: 22 กุมภาพันธ์ 2025 &#x30FB; เวลาอ่าน: 5 นาที</p>
+  </header>
+
+  <!-- Introduction -->
+  <p>"อยากเก็บประวัติแชทสำคัญไว้ในมือ" "อยากค้นหาข้อความเก่าๆ ได้อย่างรวดเร็ว" &#8212; ถ้าคุณเป็นคนหนึ่งที่คิดแบบนี้ <strong>ChatArchive</strong> คือแอป macOS ที่ตอบโจทย์คุณ</p>
+  <p>บทความนี้จะอธิบายขั้นตอนตั้งแต่ดาวน์โหลด ติดตั้ง ไปจนถึงการเรียกดูประวัติแชทจริงใน ChatArchive อย่างเข้าใจง่าย</p>
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>สารบัญ</h2>
+    <ol>
+      <li><a href="#about">ChatArchive คืออะไร</a></li>
+      <li><a href="#requirements">ความต้องการของระบบและการเตรียมตัว</a></li>
+      <li><a href="#install">ขั้นตอนการติดตั้ง</a></li>
+      <li><a href="#setup">การตั้งค่าเริ่มต้น (Full Disk Access)</a></li>
+      <li><a href="#import">การนำเข้าประวัติแชท</a></li>
+      <li><a href="#browse">การเรียกดูและค้นหาแชท</a></li>
+      <li><a href="#export">การส่งออกและสำรองข้อมูล</a></li>
+      <li><a href="#tips">เคล็ดลับการใช้งานที่เป็นประโยชน์</a></li>
+      <li><a href="#troubleshooting">เมื่อเกิดปัญหา</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. ChatArchive คืออะไร -->
+  <h2 id="about">1. ChatArchive คืออะไร</h2>
+  <p>ChatArchive เป็นแอปสำหรับ macOS ที่ช่วยให้คุณ<strong>สำรองข้อมูลและเรียกดูประวัติแชท</strong>จากแอปส่งข้อความได้อย่างปลอดภัย</p>
+
+  <ul class="feature-list">
+    <li>ถอดรหัสฐานข้อมูลที่เข้ารหัสโดยอัตโนมัติ</li>
+    <li>นำเข้าข้อมูลแชทด้วยคลิกเดียว</li>
+    <li>เรียกดูประวัติแชทในรูปแบบ UI ที่คุ้นเคย</li>
+    <li>ค้นหาข้อความเก่าได้ทันทีด้วยการค้นหาแบบเต็มข้อความ</li>
+    <li>ส่งออกและนำเข้าในรูปแบบ .chatarchive</li>
+    <li>ประมวลผลภายในเครื่องทั้งหมด &#8212; ไม่มีการส่งข้อมูลออกภายนอก</li>
+  </ul>
+
+  <div class="info-box tip">
+    <p><strong>ให้ความสำคัญกับความเป็นส่วนตัว:</strong> ChatArchive ประมวลผลทุกอย่างบน Mac ของคุณ ข้อมูลจะไม่ถูกส่งไปยังเซิร์ฟเวอร์ภายนอกใดๆ สามารถใช้งานได้แม้ไม่มีการเชื่อมต่ออินเทอร์เน็ต</p>
+  </div>
+
+  <!-- 2. ความต้องการของระบบ -->
+  <h2 id="requirements">2. ความต้องการของระบบและการเตรียมตัว</h2>
+  <h3>สภาพแวดล้อมที่จำเป็น</h3>
+  <ul>
+    <li><strong>macOS 14.0 (Sonoma) ขึ้นไป</strong></li>
+    <li>ติดตั้งแอปส่งข้อความบน Mac แล้ว</li>
+    <li>เข้าสู่ระบบแอปส่งข้อความอย่างน้อยหนึ่งครั้งแล้ว</li>
+  </ul>
+
+  <div class="info-box note">
+    <p><strong>หมายเหตุ:</strong> ChatArchive อ่านข้อมูลจากฐานข้อมูลภายในเครื่องของแอปส่งข้อความ หากยังไม่ได้ติดตั้งแอปหรือยังไม่เคยเข้าสู่ระบบ จะไม่สามารถนำเข้าข้อมูลได้</p>
+  </div>
+
+  <!-- 3. ขั้นตอนการติดตั้ง -->
+  <h2 id="install">3. ขั้นตอนการติดตั้ง</h2>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>ดาวน์โหลด</h3>
+      <p>ดาวน์โหลด ChatArchive จากปุ่ม "ดาวน์โหลด" บนเว็บไซต์ทางการ</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>วางไว้ในโฟลเดอร์ Applications</h3>
+      <p>เปิดไฟล์ <strong>.dmg</strong> ที่ดาวน์โหลดมา แล้วลาก ChatArchive ไปวางใน<strong>โฟลเดอร์ Applications</strong></p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>เปิดใช้งานครั้งแรก</h3>
+      <p>เปิด ChatArchive จาก Launchpad หรือโฟลเดอร์ Applications</p>
+    </div>
+  </div>
+
+  <div class="info-box warning">
+    <p><strong>หากแสดงข้อความ "ไม่สามารถยืนยันผู้พัฒนาได้":</strong><br>
+    อาจถูกบล็อกโดยฟีเจอร์ความปลอดภัยของ macOS (Gatekeeper)<br>
+    ไปที่ <strong>การตั้งค่าระบบ &gt; ความเป็นส่วนตัวและความปลอดภัย</strong> แล้วคลิก "เปิดอยู่ดี"</p>
+  </div>
+
+  <!-- 4. การตั้งค่าเริ่มต้น -->
+  <h2 id="setup">4. การตั้งค่าเริ่มต้น (Full Disk Access)</h2>
+  <p>ChatArchive ต้องได้รับสิทธิ์ <strong>Full Disk Access</strong> ของ macOS เพื่ออ่านฐานข้อมูลของแอปส่งข้อความ</p>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>เปิดการตั้งค่าระบบ</h3>
+      <p>ไปที่ <strong>การตั้งค่าระบบ &gt; ความเป็นส่วนตัวและความปลอดภัย &gt; Full Disk Access</strong></p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>เพิ่ม ChatArchive</h3>
+      <p>คลิกปุ่ม "+" เลือก ChatArchive จากโฟลเดอร์ Applications แล้วเพิ่มเข้าไป ตรวจสอบให้แน่ใจว่าสวิตช์เปิดอยู่</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>รีสตาร์ทแอป</h3>
+      <p>หลังตั้งค่าสิทธิ์แล้ว ให้ปิด ChatArchive แล้วเปิดใหม่อีกครั้ง</p>
+    </div>
+  </div>
+
+  <!-- 5. การนำเข้าประวัติแชท -->
+  <h2 id="import">5. การนำเข้าประวัติแชท</h2>
+  <p>มาถึงขั้นตอนหลักแล้ว คุณสามารถนำเข้าประวัติแชทได้ด้วยคลิกเดียว</p>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>คลิกปุ่ม "นำเข้า"</h3>
+      <p>คลิกปุ่ม "นำเข้า" บนหน้าจอหลัก ChatArchive จะตรวจหาฐานข้อมูลของแอปส่งข้อความโดยอัตโนมัติ ถอดรหัส และนำเข้าข้อมูล</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>รอจนนำเข้าเสร็จสมบูรณ์</h3>
+      <p>อาจใช้เวลาสักครู่ขึ้นอยู่กับปริมาณข้อมูล สามารถดูความคืบหน้าได้จากแถบแสดงสถานะ</p>
+    </div>
+  </div>
+
+  <div class="info-box tip">
+    <p><strong>ตรวจจับอัตโนมัติ:</strong> ไม่ต้องเลือกไฟล์หรือตั้งค่าใดๆ ChatArchive จะตรวจหาตำแหน่งฐานข้อมูลและดำเนินการถอดรหัสโดยอัตโนมัติ</p>
+  </div>
+
+  <!-- 6. การเรียกดูและค้นหาแชท -->
+  <h2 id="browse">6. การเรียกดูและค้นหาแชท</h2>
+  <p>เมื่อนำเข้าเสร็จแล้ว คุณสามารถเรียกดูประวัติแชทในรูปแบบ UI ที่คุ้นเคย</p>
+
+  <h3>รายการแชท</h3>
+  <p>ด้านซ้ายจะแสดงรายการห้องแชททั้งหมด แตะเลือกแล้วประวัติแชทจะปรากฏทางด้านขวา</p>
+
+  <h3>ค้นหาแบบเต็มข้อความ</h3>
+  <p>พิมพ์คำค้นหาในแถบค้นหาด้านบน จะ<strong>ค้นหาข้อความทั้งหมดข้ามทุกห้องแชท</strong>ได้ทันที "บทสนทนานั้นเมื่อไหร่นะ?" หาเจอได้ในพริบตา</p>
+
+  <h3>ประเภทข้อความที่แสดง</h3>
+  <ul>
+    <li>ข้อความตัวอักษร</li>
+    <li>รูปภาพ / สติกเกอร์ (หากมีแคช)</li>
+    <li>วิดีโอ</li>
+    <li>ข้อความเสียง</li>
+    <li>ไฟล์แนบ</li>
+    <li>ตำแหน่งที่ตั้ง</li>
+    <li>ข้อมูลติดต่อ</li>
+  </ul>
+
+  <div class="info-box note">
+    <p><strong>เกี่ยวกับรูปภาพและสติกเกอร์:</strong> จะแสดงข้อมูลที่แคชไว้ในแอปส่งข้อความ หากแคชถูกลบไปแล้ว จะแสดงเป็นภาพขนาดย่อหรือตัวแทนข้อมูล</p>
+  </div>
+
+  <!-- 7. การส่งออกและสำรองข้อมูล -->
+  <h2 id="export">7. การส่งออกและสำรองข้อมูล</h2>
+  <p>ข้อมูลแชทที่นำเข้าแล้วสามารถส่งออกในรูปแบบ <strong>.chatarchive</strong> ได้</p>
+
+  <h3>ขั้นตอนการส่งออก</h3>
+  <ol>
+    <li>เลือกส่งออกจากเมนู</li>
+    <li>เลือกตำแหน่งที่จะบันทึกแล้วกดบันทึก</li>
+    <li>ไฟล์ .chatarchive จะถูกสร้างขึ้น</li>
+  </ol>
+
+  <h3>ขั้นตอนการนำเข้า (กู้คืน)</h3>
+  <ol>
+    <li>ดับเบิลคลิกไฟล์ .chatarchive หรือเลือกนำเข้าจากเมนู</li>
+    <li>ข้อมูลสำรองจะถูกกู้คืน</li>
+  </ol>
+
+  <div class="info-box tip">
+    <p><strong>แนะนำให้สำรองข้อมูล:</strong> ก่อนย้ายบัญชีแอปส่งข้อความหรือรีเซ็ต Mac ควรส่งออกไฟล์ .chatarchive เก็บไว้ แนะนำให้บันทึกลงไดรฟ์ภายนอกหรือคลาวด์สตอเรจ</p>
+  </div>
+
+  <!-- 8. เคล็ดลับการใช้งาน -->
+  <h2 id="tips">8. เคล็ดลับการใช้งานที่เป็นประโยชน์</h2>
+
+  <h3>สร้างนิสัยสำรองข้อมูลเป็นประจำ</h3>
+  <p>ข้อมูลแชทเพิ่มขึ้นทุกวัน การส่งออกและสำรองข้อมูลเดือนละครั้งจะช่วยให้อุ่นใจในกรณีฉุกเฉิน</p>
+
+  <h3>ใช้ประโยชน์จากการค้นหาด้วยคำสำคัญ</h3>
+  <p>ค้นหาข้อมูลสำคัญที่เคยส่งหรือรับในอดีตได้อย่างรวดเร็ว เช่น "ที่อยู่" "การจอง" "รหัสผ่าน"</p>
+
+  <h3>ใช้งานได้แบบออฟไลน์</h3>
+  <p>ChatArchive ไม่ต้องการการเชื่อมต่ออินเทอร์เน็ตใดๆ ทั้งสิ้น ไม่ว่าจะอยู่บนเครื่องบินหรือคาเฟ่ที่ไม่มี Wi-Fi ก็ดูประวัติแชทได้อย่างอิสระ</p>
+
+  <!-- 9. เมื่อเกิดปัญหา -->
+  <h2 id="troubleshooting">9. เมื่อเกิดปัญหา</h2>
+
+  <h3>แสดงข้อความ "ไม่พบข้อมูล"</h3>
+  <ul>
+    <li>ตรวจสอบว่าติดตั้งแอปส่งข้อความบน Mac แล้ว</li>
+    <li>ตรวจสอบว่าเข้าสู่ระบบแอปอย่างน้อยหนึ่งครั้งแล้ว</li>
+    <li>ตรวจสอบว่าเปิดใช้งาน Full Disk Access แล้ว</li>
+  </ul>
+
+  <h3>แสดงข้อความ "ต้องการสิทธิ์การเข้าถึง"</h3>
+  <ul>
+    <li>ตรวจสอบที่ <strong>การตั้งค่าระบบ &gt; ความเป็นส่วนตัวและความปลอดภัย &gt; Full Disk Access</strong> ว่าเพิ่มและเปิดใช้งาน ChatArchive แล้ว</li>
+    <li>หลังตั้งค่าแล้ว ให้รีสตาร์ท ChatArchive</li>
+  </ul>
+
+  <h3>รูปภาพหรือสติกเกอร์ไม่แสดง</h3>
+  <ul>
+    <li>อาจเป็นเพราะแคชของแอปส่งข้อความถูกลบไปแล้ว</li>
+    <li>ตามข้อจำกัดของแอป ข้อมูลรูปภาพเก่าอาจไม่สามารถเรียกคืนได้</li>
+  </ul>
+
+  <div class="info-box note">
+    <p>หากมีคำถามอื่นๆ สามารถติดต่อเราได้ผ่าน<a href="../#contact">แบบฟอร์มติดต่อ</a></p>
+  </div>
+
+  <!-- CTA -->
+  <div class="blog-cta">
+    <h2>เริ่มต้นใช้งาน ChatArchive</h2>
+    <p>เก็บรักษาประวัติแชทอันมีค่าไว้ในมือคุณ</p>
+    <div class="hero-buttons">
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/22d0c5ae-3b31-4834-837d-7373fd1d5bba" class="btn-hero btn-download" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        ดาวน์โหลด
+      </a>
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/0faa7a8a-2f47-44e5-a56a-ae86200714d8" class="btn-hero btn-license" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        ซื้อใบอนุญาต
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <ul class="footer-links">
+    <li><a href="../privacy.html">นโยบายความเป็นส่วนตัว</a></li>
+    <li><a href="../terms.html">ข้อกำหนดการใช้งาน</a></li>
+  </ul>
+  <p>&copy; 2025 ChatArchive. All rights reserved.</p>
+</footer>
+
+<!-- ===== Minimal JS ===== -->
+<script>
+document.querySelector('.nav-toggle').addEventListener('click', function () {
+  const nav = document.getElementById('site-nav');
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('open');
+});
+
+document.querySelectorAll('.site-nav a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    document.getElementById('site-nav').classList.remove('open');
+    document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>

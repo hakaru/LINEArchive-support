@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NHBDYBWEY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7NHBDYBWEY');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>บล็อก - ChatArchive</title>
+  <meta name="description" content="เคล็ดลับและเทคนิคการใช้ ChatArchive และการใช้ประโยชน์จากประวัติแชทของคุณ">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../images/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../../images/icon-180.png">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/blog.css">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="../" class="logo"><span>Chat</span>Archive</a>
+    <button class="nav-toggle" aria-label="เมนู" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="site-nav" id="site-nav">
+        <li><a href="../#features">คุณสมบัติ</a></li>
+        <li><a href="../#howto">วิธีใช้</a></li>
+        <li><a href="../#faq">คำถามที่พบบ่อย</a></li>
+        <li><a href="../#privacy">ความเป็นส่วนตัว</a></li>
+        <li><a href="../#contact">ติดต่อเรา</a></li>
+        <li><a href="./">บล็อก</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Blog List ===== -->
+<div class="blog-list">
+
+  <header class="blog-list-header">
+    <h1>บล็อก</h1>
+    <p>เคล็ดลับและเทคนิคการใช้ ChatArchive และการใช้ประโยชน์จากประวัติแชท</p>
+  </header>
+
+  <a href="line-export-all-chats.html" class="blog-card">
+    <h2>วิธีส่งออกประวัติแชท LINE ทั้งหมดเป็นไฟล์ข้อความ</h2>
+    <p>การส่งออกมาตรฐานของ LINE ทำได้ทีละแชท เรียนรู้วิธีส่งออกประวัติแชททั้งหมดเป็นไฟล์ข้อความพร้อมกันด้วยฟีเจอร์มาตรฐานของ LINE และ ChatArchive</p>
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">สำรองข้อมูล</span>
+      <span class="blog-card-tag">LINE</span>
+      22 กุมภาพันธ์ 2025
+    </div>
+  </a>
+
+  <a href="line-backup-notebooklm.html" class="blog-card">
+    <h2>วิธีอัปโหลดประวัติแชท LINE ไปยัง NotebookLM เพื่อวิเคราะห์ด้วย AI</h2>
+    <p>คู่มือฉบับสมบูรณ์สำหรับการโหลดประวัติแชท LINE เข้าสู่ NotebookLM ของ Google เพื่อให้ AI สรุป ค้นหา และวิเคราะห์ เหมาะสำหรับการรำลึกความทรงจำและจัดระเบียบข้อมูล</p>
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">เคล็ดลับ</span>
+      <span class="blog-card-tag">NotebookLM</span>
+      22 กุมภาพันธ์ 2025
+    </div>
+  </a>
+
+  <a href="chatarchive-getting-started.html" class="blog-card">
+    <h2>วิธีใช้ ChatArchive &#8212; คู่มือฉบับสมบูรณ์ตั้งแต่ติดตั้งจนถึงการใช้งาน</h2>
+    <p>คู่มือ ChatArchive ฉบับสมบูรณ์: ตั้งแต่ดาวน์โหลดและติดตั้ง ไปจนถึงนำเข้า เรียกดู ค้นหา และส่งออกประวัติแชทใน 3 ขั้นตอน</p>
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">วิธีใช้</span>
+      22 กุมภาพันธ์ 2025
+    </div>
+  </a>
+
+</div>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <ul class="footer-links">
+    <li><a href="../privacy.html">นโยบายความเป็นส่วนตัว</a></li>
+    <li><a href="../terms.html">ข้อกำหนดการใช้งาน</a></li>
+  </ul>
+  <p>&copy; 2025 ChatArchive. All rights reserved.</p>
+</footer>
+
+<!-- ===== Minimal JS ===== -->
+<script>
+document.querySelector('.nav-toggle').addEventListener('click', function () {
+  const nav = document.getElementById('site-nav');
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('open');
+});
+
+document.querySelectorAll('.site-nav a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    document.getElementById('site-nav').classList.remove('open');
+    document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>

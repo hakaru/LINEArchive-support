@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NHBDYBWEY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7NHBDYBWEY');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - ChatArchive</title>
+  <meta name="description" content="Tips and techniques for using ChatArchive and making the most of your chat history.">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../images/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../../images/icon-180.png">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/blog.css">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="../" class="logo"><span>Chat</span>Archive</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="site-nav" id="site-nav">
+        <li><a href="../#features">Features</a></li>
+        <li><a href="../#howto">How to Use</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+        <li><a href="../#privacy">Privacy</a></li>
+        <li><a href="../#contact">Contact</a></li>
+        <li><a href="./">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Blog List ===== -->
+<div class="blog-list">
+
+  <header class="blog-list-header">
+    <h1>Blog</h1>
+    <p>Tips and techniques for using ChatArchive and making the most of your chat history</p>
+  </header>
+
+  <a href="line-export-all-chats.html" class="blog-card">
+    <h2>How to Export All LINE Chat History to Text Files</h2>
+    <p>LINE's standard export works one chat at a time. Learn how to batch-export all your chat history to text files using both LINE's built-in feature and ChatArchive.</p>
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">Backup</span>
+      <span class="blog-card-tag">LINE</span>
+      February 22, 2025
+    </div>
+  </a>
+
+  <a href="line-backup-notebooklm.html" class="blog-card">
+    <h2>How to Upload LINE Chat History to NotebookLM for AI Analysis</h2>
+    <p>A complete guide to loading your LINE chat history into Google's NotebookLM for AI-powered summarization, search, and analysis. Perfect for revisiting memories and organizing information.</p>
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">Tips</span>
+      <span class="blog-card-tag">NotebookLM</span>
+      February 22, 2025
+    </div>
+  </a>
+
+  <a href="chatarchive-getting-started.html" class="blog-card">
+    <h2>How to Use ChatArchive &#8212; Complete Guide from Installation to Advanced Usage</h2>
+    <p>A complete guide to ChatArchive: from download and installation to importing, browsing, searching, and exporting chat history in just 3 steps.</p>
+    <div class="blog-card-meta">
+      <span class="blog-card-tag">How to Use</span>
+      February 22, 2025
+    </div>
+  </a>
+
+</div>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <ul class="footer-links">
+    <li><a href="../privacy.html">Privacy Policy</a></li>
+    <li><a href="../terms.html">Terms of Service</a></li>
+  </ul>
+  <p>&copy; 2025 ChatArchive. All rights reserved.</p>
+</footer>
+
+<!-- ===== Minimal JS ===== -->
+<script>
+document.querySelector('.nav-toggle').addEventListener('click', function () {
+  const nav = document.getElementById('site-nav');
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('open');
+});
+
+document.querySelectorAll('.site-nav a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    document.getElementById('site-nav').classList.remove('open');
+    document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>

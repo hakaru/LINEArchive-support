@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NHBDYBWEY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7NHBDYBWEY');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>如何將 LINE 所有聊天記錄匯出為文字檔【批次匯出】</title>
+  <meta name="description" content="完整說明如何將 LINE 所有聊天記錄批次匯出為文字檔。了解標準功能的限制，以及使用 ChatArchive 一次備份所有聊天記錄的步驟。">
+  <meta property="og:title" content="如何將 LINE 所有聊天記錄匯出為文字檔【批次匯出】">
+  <meta property="og:description" content="LINE 聊天記錄全數匯出為文字檔。標準功能只能逐一匯出，使用 ChatArchive 即可一次批次備份。">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../images/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../../images/icon-180.png">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/blog.css">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="../" class="logo"><span>Chat</span>Archive</a>
+    <button class="nav-toggle" aria-label="選單" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="site-nav" id="site-nav">
+        <li><a href="../#features">功能</a></li>
+        <li><a href="../#howto">使用方式</a></li>
+        <li><a href="../#faq">常見問題</a></li>
+        <li><a href="../#privacy">隱私權</a></li>
+        <li><a href="../#contact">聯絡我們</a></li>
+        <li><a href="./">部落格</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Blog Article ===== -->
+<article class="blog-article">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="../">首頁</a> &gt; <a href="./">部落格</a> &gt; 將 LINE 所有聊天記錄匯出為文字
+  </nav>
+
+  <!-- Blog Header -->
+  <header class="blog-header">
+    <h1>如何將 LINE 所有聊天記錄匯出為文字檔</h1>
+    <p class="blog-meta">發布日期：2025年2月22日 &#x30FB; 閱讀時間：7 分鐘</p>
+  </header>
+
+  <!-- Introduction -->
+  <p>在更換手機或轉移帳號之前，是否想過要將 LINE 的聊天記錄保存為文字檔？</p>
+  <p>LINE 雖然有標準的匯出功能，但有一個很大的限制 &#8212; <strong>一次只能匯出一個聊天室</strong>。對於擁有數十甚至數百個聊天室的用戶來說，這根本不切實際。</p>
+  <p>本文將介紹 LINE 的標準匯出步驟，以及如何<strong>一次將所有聊天記錄批次轉為文字檔</strong>的方法。</p>
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>目錄</h2>
+    <ol>
+      <li><a href="#why">為什麼要將聊天記錄保存為文字檔</a></li>
+      <li><a href="#standard">方法 1：LINE 標準匯出功能</a></li>
+      <li><a href="#limitation">標準功能的限制</a></li>
+      <li><a href="#chatarchive">方法 2：使用 ChatArchive 批次匯出所有聊天記錄</a></li>
+      <li><a href="#compare">方法比較</a></li>
+      <li><a href="#setup">ChatArchive 的設定</a></li>
+      <li><a href="#howto">使用 ChatArchive 匯出的步驟</a></li>
+      <li><a href="#format">匯出的文字內容</a></li>
+      <li><a href="#usecase">匯出資料的活用方式</a></li>
+      <li><a href="#faq">常見問題</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. 為什麼要保存為文字檔 -->
+  <h2 id="why">1. 為什麼要將聊天記錄保存為文字檔</h2>
+  <p>LINE 的聊天記錄可以透過雲端備份（iCloud / Google 雲端硬碟）保存，但將其保存為文字檔有很大的好處。</p>
+
+  <ul>
+    <li><strong>不依賴應用程式：</strong>即使沒有 LINE，也能在任何電腦或手機上閱讀</li>
+    <li><strong>自由搜尋：</strong>可使用文字編輯器或 grep 進行高速全文搜尋</li>
+    <li><strong>最適合長期保存：</strong>.txt 檔案是未來也能讀取的格式</li>
+    <li><strong>可用於其他工具：</strong>可載入 NotebookLM 等 AI 工具進行分析</li>
+    <li><strong>帳號轉移時的保險：</strong>即使備份損壞，文字資料仍然保留</li>
+  </ul>
+
+  <!-- 2. LINE 標準匯出功能 -->
+  <h2 id="standard">2. 方法 1：LINE 標準匯出功能</h2>
+  <p>LINE 內建了將聊天記錄儲存為 .txt 檔案的功能。</p>
+
+  <h3>iPhone / Android</h3>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>開啟聊天室</h3>
+      <p>開啟要匯出的聊天室。</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>開啟選單</h3>
+      <p>點擊畫面右上角的 <strong>&#8801;</strong> &gt; <strong>其他</strong> &gt; <strong>傳送聊天記錄</strong>。</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>選擇傳送方式</h3>
+      <p>選擇電子郵件、AirDrop、Google 雲端硬碟等方便傳輸至電腦的方式。</p>
+    </div>
+  </div>
+
+  <h3>電腦版 LINE（Windows / Mac）</h3>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>開啟聊天室</h3>
+      <p>在電腦版 LINE 中開啟要匯出的聊天室。</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>選擇「儲存聊天記錄」</h3>
+      <p>點擊畫面右上角的 <strong>&#8801;</strong> &gt; <strong>儲存聊天記錄</strong>，並指定儲存資料夾。</p>
+    </div>
+  </div>
+
+  <div class="info-box note">
+    <p><strong>輸出格式：</strong>以純文字格式（.txt）輸出。記錄日期、時間、發送者名稱和訊息內容，但<strong>圖片、影片、貼圖不會以文字形式記錄</strong>（會顯示為「[貼圖]」「[照片]」等預設文字）。</p>
+  </div>
+
+  <!-- 3. 標準功能的限制 -->
+  <h2 id="limitation">3. 標準功能的限制</h2>
+  <p>LINE 標準匯出功能雖然方便，但有<strong>重大限制</strong>。</p>
+
+  <ul>
+    <li><strong class="cross">&#x2717;</strong> <strong>一次只能匯出一個聊天室</strong></li>
+    <li><strong class="cross">&#x2717;</strong> 沒有批次匯出功能</li>
+    <li><strong class="cross">&#x2717;</strong> 若有 100 個聊天室，就需要重複操作 100 次</li>
+    <li><strong class="cross">&#x2717;</strong> 群組聊天、個人聊天、官方帳號都需要分別操作</li>
+    <li><strong class="cross">&#x2717;</strong> 容易遺漏未匯出的聊天室</li>
+  </ul>
+
+  <div class="info-box warning">
+    <p><strong>實際狀況：</strong>一般的 LINE 使用者通常擁有 50 至 200 個聊天室。使用標準功能匯出所有聊天記錄，只能逐一手動操作。</p>
+  </div>
+
+  <!-- 4. ChatArchive 批次匯出 -->
+  <h2 id="chatarchive">4. 方法 2：使用 ChatArchive 批次匯出所有聊天記錄</h2>
+  <p>解決這個問題的工具就是 <strong>ChatArchive</strong>。</p>
+  <p>ChatArchive 是一款 macOS 應用程式，可直接存取 Mac 上 LINE 的資料庫，<strong>一鍵批次匯入和匯出所有聊天室的聊天記錄</strong>。</p>
+
+  <ul class="feature-list">
+    <li>一次備份所有聊天室</li>
+    <li>自動解密加密資料庫</li>
+    <li>支援文字、圖片、貼圖、影片、語音、檔案</li>
+    <li>以 .chatarchive 格式匯出與匯入</li>
+    <li>聊天介面瀏覽 + 全文搜尋</li>
+    <li>完全本機處理 &#8212; 資料絕不會傳送至外部</li>
+  </ul>
+
+  <div class="mid-cta">
+    <p>一次備份所有聊天記錄 &#8212; 不需要再逐一匯出</p>
+    <a href="https://hakaru.lemonsqueezy.com/checkout/buy/0faa7a8a-2f47-44e5-a56a-ae86200714d8" class="btn-hero btn-download" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      購買授權
+    </a>
+  </div>
+
+  <!-- 5. 比較表 -->
+  <h2 id="compare">5. 方法比較</h2>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>LINE 標準功能</th>
+        <th>ChatArchive</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>處理範圍</strong></td>
+        <td>逐一聊天室</td>
+        <td><strong>所有聊天室一次處理</strong></td>
+      </tr>
+      <tr>
+        <td><strong>操作次數</strong></td>
+        <td>聊天室數量 &#x00D7; 手動</td>
+        <td><strong>一鍵完成</strong></td>
+      </tr>
+      <tr>
+        <td><strong>文字輸出</strong></td>
+        <td><span class="check">&#x2713;</span> .txt</td>
+        <td><span class="check">&#x2713;</span> .chatarchive</td>
+      </tr>
+      <tr>
+        <td><strong>圖片、貼圖</strong></td>
+        <td><span class="cross">&#x2717;</span> 不支援</td>
+        <td><span class="check">&#x2713;</span> 從快取取得</td>
+      </tr>
+      <tr>
+        <td><strong>全文搜尋</strong></td>
+        <td><span class="cross">&#x2717;</span></td>
+        <td><span class="check">&#x2713;</span> 跨聊天室搜尋</td>
+      </tr>
+      <tr>
+        <td><strong>聊天介面瀏覽</strong></td>
+        <td><span class="cross">&#x2717;</span></td>
+        <td><span class="check">&#x2713;</span></td>
+      </tr>
+      <tr>
+        <td><strong>隱私</strong></td>
+        <td>在裝置上完成</td>
+        <td><strong>完全本機處理</strong></td>
+      </tr>
+      <tr>
+        <td><strong>支援系統</strong></td>
+        <td>iOS / Android / PC</td>
+        <td>macOS 14.0+</td>
+      </tr>
+      <tr>
+        <td><strong>費用</strong></td>
+        <td>免費</td>
+        <td>需購買授權</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- 6. 設定 -->
+  <h2 id="setup">6. ChatArchive 的設定</h2>
+
+  <h3>必要環境</h3>
+  <ul>
+    <li><strong>macOS 14.0（Sonoma）或更新版本</strong></li>
+    <li><strong>Mac 版 LINE 已安裝</strong>（已登入狀態）</li>
+  </ul>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>下載 ChatArchive</h3>
+      <p>從官方網站下載 ChatArchive，並放入應用程式資料夾。</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>購買並啟用授權</h3>
+      <p>購買授權後，在應用程式內輸入授權金鑰進行啟用。</p>
+    </div>
+  </div>
+
+  <div class="mid-cta">
+    <p>購買授權以解鎖所有功能</p>
+    <a href="https://hakaru.lemonsqueezy.com/checkout/buy/0faa7a8a-2f47-44e5-a56a-ae86200714d8" class="btn-hero btn-download" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      購買授權
+    </a>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>授予完整磁碟存取權</h3>
+      <p>在<strong>系統設定 &gt; 隱私權與安全性 &gt; 完整磁碟存取權</strong>中新增並啟用 ChatArchive。這是存取 LINE 資料庫所必需的權限。</p>
+    </div>
+  </div>
+
+  <!-- 7. 匯出步驟 -->
+  <h2 id="howto">7. 使用 ChatArchive 匯出的步驟</h2>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>啟動 ChatArchive</h3>
+      <p>從應用程式資料夾啟動 ChatArchive。請確認 Mac 版 LINE 已預先安裝並完成登入。</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>點擊「匯入」</h3>
+      <p>點擊主畫面上的「匯入」按鈕。系統會<strong>自動偵測、解密並匯入</strong> LINE 的加密資料庫。無需繁瑣的檔案選取。</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>確認匯入完成</h3>
+      <p>所有聊天室將以列表形式顯示。您可以直接在聊天介面中瀏覽和搜尋。</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">4</div>
+    <div class="blog-step-body">
+      <h3>匯出</h3>
+      <p>從選單中選擇匯出，並指定儲存位置。所有資料將以 <strong>.chatarchive 格式</strong>儲存。</p>
+    </div>
+  </div>
+
+  <div class="info-box tip">
+    <p><strong>備份檔案的保管：</strong>匯出的 .chatarchive 檔案建議儲存至外接硬碟或雲端儲存空間。使用 ChatArchive 重新匯入後，隨時可以瀏覽。</p>
+  </div>
+
+  <!-- 8. 輸出內容 -->
+  <h2 id="format">8. 匯出的文字內容</h2>
+  <p>使用 ChatArchive 匯入的資料包含以下內容。</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>訊息類型</th>
+        <th>內容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>文字</td>
+        <td>訊息內容完整保存</td>
+      </tr>
+      <tr>
+        <td>圖片</td>
+        <td>從快取取得（若無快取則顯示預設圖片）</td>
+      </tr>
+      <tr>
+        <td>貼圖</td>
+        <td>從快取取得（若無快取則顯示預設圖片）</td>
+      </tr>
+      <tr>
+        <td>影片</td>
+        <td>記錄中繼資訊</td>
+      </tr>
+      <tr>
+        <td>語音訊息</td>
+        <td>記錄中繼資訊</td>
+      </tr>
+      <tr>
+        <td>檔案</td>
+        <td>記錄檔案名稱</td>
+      </tr>
+      <tr>
+        <td>位置資訊</td>
+        <td>記錄地址與座標資訊</td>
+      </tr>
+      <tr>
+        <td>聯絡人</td>
+        <td>記錄分享的聯絡人資訊</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="info-box note">
+    <p><strong>與 LINE 標準匯出的差異：</strong>LINE 標準文字匯出只能記錄文字訊息，但 ChatArchive 會盡可能從快取中取得圖片、貼圖等多媒體訊息。</p>
+  </div>
+
+  <!-- 9. 活用方式 -->
+  <h2 id="usecase">9. 匯出資料的活用方式</h2>
+
+  <h3>作為長期備份保存</h3>
+  <p>在更換手機、轉移帳號或退出 LINE 之前，備份所有聊天記錄。以防萬一的資料遺失。</p>
+
+  <h3>搜尋過去的對話</h3>
+  <p>使用 ChatArchive 的全文搜尋功能，即可跨所有聊天室搜尋「那家餐廳的名字」「去年的約定」等內容。</p>
+
+  <h3>使用 AI 分析</h3>
+  <p>將匯出的文字資料載入 Google NotebookLM 等 AI 工具，即可進行摘要、分析和資訊擷取。</p>
+  <p><a href="line-backup-notebooklm.html">&#x2192; 如何使用 NotebookLM 分析 LINE 聊天記錄</a></p>
+
+  <h3>作為回憶的記錄</h3>
+  <p>將與家人和朋友的珍貴對話以可重新閱讀的形式保存。就像相簿一樣，留下文字的回憶。</p>
+
+  <!-- 10. 常見問題 -->
+  <h2 id="faq">10. 常見問題</h2>
+
+  <h3>Q：必須登入 Mac 版 LINE 嗎？</h3>
+  <p>是的。ChatArchive 會讀取 Mac 上的 LINE 資料庫。需要在 Mac 版 LINE 中至少登入一次，並完成聊天記錄的同步。</p>
+
+  <h3>Q：資料會被傳送至外部嗎？</h3>
+  <p>不會。ChatArchive 採用<strong>完全本機處理</strong>。完全不進行網路通訊，資料不會被傳送至網路。</p>
+
+  <h3>Q：圖片和貼圖也會被保存嗎？</h3>
+  <p>LINE 應用程式快取中保留的圖片和貼圖可以顯示和保存。已刪除快取的舊圖片會以預設圖片顯示。</p>
+
+  <h3>Q：匯出的檔案可以在其他 Mac 上檢視嗎？</h3>
+  <p>可以。將 .chatarchive 檔案匯入至其他 Mac 的 ChatArchive 即可直接瀏覽。</p>
+
+  <h3>Q：可以免費試用嗎？</h3>
+  <p>下載免費。使用所有功能需要購買授權。</p>
+
+  <!-- CTA -->
+  <div class="blog-cta">
+    <h2>所有聊天記錄，一鍵備份</h2>
+    <p>不必再逐一手動匯出。<br>使用 ChatArchive，一次完整備份您珍貴的聊天記錄。</p>
+    <div class="hero-buttons">
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/0faa7a8a-2f47-44e5-a56a-ae86200714d8" class="btn-hero btn-download" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        購買授權
+      </a>
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/22d0c5ae-3b31-4834-837d-7373fd1d5bba" class="btn-hero btn-license" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        免費下載
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <ul class="footer-links">
+    <li><a href="../privacy.html">隱私權政策</a></li>
+    <li><a href="../terms.html">服務條款</a></li>
+  </ul>
+  <p>&copy; 2025 ChatArchive. All rights reserved.</p>
+</footer>
+
+<!-- ===== Minimal JS ===== -->
+<script>
+document.querySelector('.nav-toggle').addEventListener('click', function () {
+  const nav = document.getElementById('site-nav');
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('open');
+});
+
+document.querySelectorAll('.site-nav a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    document.getElementById('site-nav').classList.remove('open');
+    document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>

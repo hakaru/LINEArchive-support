@@ -20,302 +20,7 @@
   <link rel="icon" href="../images/icon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="../images/icon-180.png">
   <link rel="stylesheet" href="../css/style.css">
-  <style>
-    /* ===== Blog-specific styles ===== */
-    .blog-article {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem 4rem;
-    }
-
-    .blog-header {
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--color-border);
-    }
-
-    .blog-header h1 {
-      font-size: 1.85rem;
-      font-weight: 800;
-      line-height: 1.4;
-      margin-bottom: 0.75rem;
-    }
-
-    .blog-meta {
-      font-size: 0.85rem;
-      color: var(--color-text-secondary);
-    }
-
-    .blog-article h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin: 3rem 0 1rem;
-      padding-bottom: 0.35rem;
-      border-bottom: 2px solid var(--color-primary-light);
-    }
-
-    .blog-article h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin: 2rem 0 0.75rem;
-    }
-
-    .blog-article p {
-      font-size: 0.95rem;
-      color: var(--color-text-secondary);
-      line-height: 1.85;
-      margin-bottom: 1rem;
-    }
-
-    .blog-article ul,
-    .blog-article ol {
-      font-size: 0.95rem;
-      color: var(--color-text-secondary);
-      line-height: 1.85;
-      margin-bottom: 1rem;
-      padding-left: 1.5rem;
-    }
-
-    .blog-article li {
-      margin-bottom: 0.4rem;
-    }
-
-    .blog-article strong {
-      color: var(--color-text);
-    }
-
-    /* Screenshot placeholders */
-    .screenshot {
-      margin: 1.5rem 0;
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--color-bg-alt);
-    }
-
-    .screenshot img {
-      width: 100%;
-      display: block;
-    }
-
-    .screenshot-placeholder {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 320px;
-      color: var(--color-text-secondary);
-      font-size: 0.9rem;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    .screenshot-caption {
-      font-size: 0.8rem;
-      color: var(--color-text-secondary);
-      text-align: center;
-      padding: 0.5rem 1rem 0.75rem;
-      background: var(--color-bg);
-      border-top: 1px solid var(--color-border);
-    }
-
-    /* Step cards */
-    .blog-step {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      margin-bottom: 1.5rem;
-      padding: 1.25rem;
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      background: var(--color-bg);
-    }
-
-    .blog-step-number {
-      flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--color-primary);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1rem;
-    }
-
-    .blog-step-body h3 {
-      margin: 0 0 0.25rem;
-      font-size: 1rem;
-    }
-
-    .blog-step-body p {
-      margin: 0;
-      font-size: 0.9rem;
-    }
-
-    /* Info / Warning boxes */
-    .info-box {
-      padding: 1rem 1.25rem;
-      border-radius: 10px;
-      margin: 1.25rem 0;
-      font-size: 0.9rem;
-      line-height: 1.7;
-    }
-
-    .info-box p {
-      font-size: 0.9rem;
-      margin: 0;
-    }
-
-    .info-box.tip {
-      background: var(--color-primary-light);
-      border-left: 4px solid var(--color-primary);
-    }
-
-    .info-box.warning {
-      background: #fff8e6;
-      border-left: 4px solid #f0ad4e;
-    }
-
-    .info-box.note {
-      background: #eef3ff;
-      border-left: 4px solid #4a90d9;
-    }
-
-    /* Feature highlight list */
-    .feature-list {
-      list-style: none;
-      padding: 0;
-    }
-
-    .feature-list li {
-      padding: 0.5rem 0 0.5rem 1.75rem;
-      position: relative;
-    }
-
-    .feature-list li::before {
-      content: "\2713";
-      position: absolute;
-      left: 0;
-      color: var(--color-primary);
-      font-weight: 700;
-    }
-
-    /* TOC */
-    .toc {
-      background: var(--color-bg-alt);
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .toc h2 {
-      font-size: 1rem;
-      margin: 0 0 0.75rem;
-      padding: 0;
-      border: none;
-    }
-
-    .toc ol {
-      margin: 0;
-      padding-left: 1.25rem;
-      font-size: 0.9rem;
-    }
-
-    .toc li {
-      margin-bottom: 0.35rem;
-    }
-
-    .toc a {
-      color: var(--color-text-secondary);
-    }
-
-    .toc a:hover {
-      color: var(--color-primary);
-    }
-
-    /* CTA section */
-    .blog-cta {
-      text-align: center;
-      padding: 2rem;
-      margin-top: 3rem;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--color-primary-light) 0%, #fff 100%);
-      border: 1px solid var(--color-border);
-    }
-
-    .blog-cta h2 {
-      border: none;
-      margin: 0 0 0.5rem;
-      font-size: 1.3rem;
-    }
-
-    .blog-cta p {
-      margin-bottom: 1.25rem;
-    }
-
-    /* Code block */
-    .code-sample {
-      background: #1e1e1e;
-      color: #d4d4d4;
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      margin: 1rem 0;
-      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
-      font-size: 0.8rem;
-      line-height: 1.6;
-      overflow-x: auto;
-      white-space: pre;
-    }
-
-    /* Prompt examples */
-    .prompt-example {
-      background: var(--color-bg-alt);
-      border: 1px solid var(--color-border);
-      border-radius: 10px;
-      padding: 0.75rem 1rem;
-      margin: 0.5rem 0;
-      font-size: 0.9rem;
-      color: var(--color-text);
-    }
-
-    .prompt-example::before {
-      content: "Q: ";
-      font-weight: 700;
-      color: var(--color-primary);
-    }
-
-    /* Breadcrumb */
-    .breadcrumb {
-      font-size: 0.85rem;
-      color: var(--color-text-secondary);
-      margin-bottom: 1.5rem;
-    }
-
-    .breadcrumb a {
-      color: var(--color-text-secondary);
-    }
-
-    .breadcrumb a:hover {
-      color: var(--color-primary);
-    }
-
-    @media (max-width: 768px) {
-      .blog-header h1 {
-        font-size: 1.4rem;
-      }
-
-      .blog-article h2 {
-        font-size: 1.2rem;
-      }
-
-      .screenshot-placeholder {
-        height: 200px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../css/blog.css">
 </head>
 <body>
 
@@ -436,11 +141,6 @@
     </div>
   </div>
 
-  <div class="screenshot">
-    <div class="screenshot-placeholder">[ スクリーンショット: LINEのトーク履歴送信メニュー ]</div>
-    <div class="screenshot-caption">トークルーム &gt; メニュー &gt; その他 &gt; トーク履歴を送信</div>
-  </div>
-
   <div class="blog-step">
     <div class="blog-step-number">3</div>
     <div class="blog-step-body">
@@ -523,11 +223,6 @@
     </div>
   </div>
 
-  <div class="screenshot">
-    <div class="screenshot-placeholder">[ スクリーンショット: NotebookLMのトップ画面 ]</div>
-    <div class="screenshot-caption">NotebookLMのトップ画面</div>
-  </div>
-
   <div class="blog-step">
     <div class="blog-step-number">2</div>
     <div class="blog-step-body">
@@ -542,11 +237,6 @@
       <h3>ソースをアップロード</h3>
       <p>「ソースを追加」から <strong>「ファイルをアップロード」</strong> を選択し、先ほどエクスポートした .txt ファイルをアップロードします。</p>
     </div>
-  </div>
-
-  <div class="screenshot">
-    <div class="screenshot-placeholder">[ スクリーンショット: NotebookLMのソース追加画面 ]</div>
-    <div class="screenshot-caption">「ソースを追加」からテキストファイルをアップロード</div>
   </div>
 
   <div class="blog-step">
@@ -564,11 +254,6 @@
   <!-- 7. AIに質問・分析 -->
   <h2 id="analyze">7. Step 3: AIに質問・分析してもらう</h2>
   <p>アップロードが完了すると、NotebookLMがソースを解析します。画面下部のチャット欄から、自然言語で質問するだけでAIが回答してくれます。</p>
-
-  <div class="screenshot">
-    <div class="screenshot-placeholder">[ スクリーンショット: NotebookLMのチャット画面で質問している様子 ]</div>
-    <div class="screenshot-caption">チャット欄にプロンプトを入力してAIに質問</div>
-  </div>
 
   <h3>NotebookLM自動生成の概要</h3>
   <p>ソースをアップロードすると、NotebookLMが自動的に<strong>ソースの概要</strong>を生成します。これだけでもチャット履歴の全体像を把握できます。</p>

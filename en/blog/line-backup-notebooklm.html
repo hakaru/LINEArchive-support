@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NHBDYBWEY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7NHBDYBWEY');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Upload LINE Chat History to NotebookLM for AI Analysis</title>
+  <meta name="description" content="Learn how to export LINE chat history as text and upload it to Google NotebookLM for AI-powered analysis, summarization, and search. Great for revisiting memories and organizing information.">
+  <meta property="og:title" content="How to Upload LINE Chat History to NotebookLM for AI Analysis">
+  <meta property="og:description" content="Learn how to export LINE chat history as text and upload it to Google NotebookLM for AI-powered analysis, summarization, and search. Great for revisiting memories and organizing information.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../images/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../../images/icon-180.png">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/blog.css">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="../" class="logo"><span>Chat</span>Archive</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="site-nav" id="site-nav">
+        <li><a href="../#features">Features</a></li>
+        <li><a href="../#howto">How to Use</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+        <li><a href="../#privacy">Privacy</a></li>
+        <li><a href="../#contact">Contact</a></li>
+        <li><a href="./">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Blog Article ===== -->
+<article class="blog-article">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="./">Blog</a> &gt; LINE Chat History &times; NotebookLM
+  </nav>
+
+  <!-- Blog Header -->
+  <header class="blog-header">
+    <h1>How to Upload LINE Chat History to NotebookLM for AI Analysis</h1>
+    <p class="blog-meta">Published: February 22, 2025 &#x30FB; Reading time: 8 min</p>
+  </header>
+
+  <!-- Introduction -->
+  <p>Have years of LINE chat history sitting untouched? Upload them to Google's <strong>NotebookLM</strong>, and AI will summarize, analyze, and search through your massive chat logs for you.</p>
+  <p>In this guide, we walk you through exporting your LINE chat history and loading it into NotebookLM for AI-powered analysis.</p>
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#what">What is NotebookLM</a></li>
+      <li><a href="#what-can">What You Can Do &#8212; Use Cases</a></li>
+      <li><a href="#prepare">What You'll Need</a></li>
+      <li><a href="#export-line">Step 1: Export Chat History from LINE</a></li>
+      <li><a href="#export-chatarchive">Exporting with ChatArchive</a></li>
+      <li><a href="#upload">Step 2: Upload to NotebookLM</a></li>
+      <li><a href="#analyze">Step 3: Ask AI to Analyze</a></li>
+      <li><a href="#prompts">Useful Prompts</a></li>
+      <li><a href="#privacy-note">Privacy Notes</a></li>
+      <li><a href="#tips">More Tips</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. What is NotebookLM -->
+  <h2 id="what">1. What is NotebookLM</h2>
+  <p><strong>NotebookLM</strong> is an AI-powered research and note-taking tool provided by Google. Upload documents such as PDFs or text files, and the AI will understand their content to provide summaries, answer questions, and perform analysis.</p>
+
+  <ul class="feature-list">
+    <li>Answers based solely on your uploaded sources (minimal hallucination)</li>
+    <li>Supports text files (.txt), PDFs, Google Docs, web pages, and more</li>
+    <li>Handles up to 500,000 words and 200 MB per source</li>
+    <li>Upload up to 50 sources on the free plan</li>
+    <li>Available immediately with a Google account</li>
+  </ul>
+
+  <div class="info-box tip">
+    <p><strong>Key point:</strong> NotebookLM only references the content of your uploaded documents when generating answers. Unlike general-purpose AI chatbots, it does not mix in outside information, making it ideal for analyzing chat history.</p>
+  </div>
+
+  <!-- 2. What You Can Do -->
+  <h2 id="what-can">2. What You Can Do &#8212; Use Cases</h2>
+  <p>Once you load your LINE chat history into NotebookLM, here is what you can do.</p>
+
+  <h3>Revisiting Memories</h3>
+  <p>"What were we talking about in the summer of 2023?" "Where did we decide on the trip plans?" &#8212; the AI can dig through massive chat logs to find specific topics for you.</p>
+
+  <h3>Organizing and Discovering Information</h3>
+  <p>"List all the restaurant names that were shared." "Summarize everything we discussed about the move." &#8212; you can structure scattered information from your chats.</p>
+
+  <h3>Summarizing Conversations</h3>
+  <p>Extract key points from long group chats. Ask "Summarize last month's conversations" to skip through messages you do not need to read.</p>
+
+  <h3>Sentiment Analysis and Trend Detection</h3>
+  <p>"Did the tone of our conversations change over time?" "What word patterns come up frequently?" &#8212; meta-level analysis is also possible.</p>
+
+  <!-- 3. What You'll Need -->
+  <h2 id="prepare">3. What You'll Need</h2>
+  <ul>
+    <li><strong>Google account</strong> (required for NotebookLM)</li>
+    <li><strong>LINE</strong> installed on your smartphone or PC</li>
+    <li><strong>PC browser</strong> (NotebookLM is used in a desktop browser)</li>
+  </ul>
+
+  <!-- 4. Export from LINE -->
+  <h2 id="export-line">4. Step 1: Export Chat History from LINE</h2>
+  <p>LINE has a built-in feature to export chat history as a text file (.txt).</p>
+
+  <h3>iPhone / Android</h3>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>Open the chat room</h3>
+      <p>Open the chat room you want to export.</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>Select "Export Chat History" from the menu</h3>
+      <p>Tap the <strong>&#8801;</strong> (menu) icon in the top right &gt; <strong>More</strong> &gt; <strong>Export Chat History</strong>.</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>Choose a save destination</h3>
+      <p>Select a method that makes it easy to transfer the file to your PC, such as "Save to Files," email, AirDrop, or Google Drive.</p>
+    </div>
+  </div>
+
+  <div class="info-box note">
+    <p><strong>Export format:</strong> LINE chat history is exported in <strong>.txt (plain text) format</strong>. Date, time, sender name, and message content are recorded chronologically. Images and videos are not included.</p>
+  </div>
+
+  <h3>PC LINE (Windows / Mac)</h3>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>Open the chat room</h3>
+      <p>Open the chat room you want to export in LINE for PC.</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>Select "Save Chat"</h3>
+      <p>Click the <strong>&#8801;</strong> (menu) icon in the top right &gt; <strong>Save Chat</strong>, then choose a save location.</p>
+    </div>
+  </div>
+
+  <h3>What the exported file looks like</h3>
+  <p>The exported text file will have a format similar to the following.</p>
+
+  <div class="code-sample">[LINE] Aさんとのトーク履歴
+保存日時：2025/02/22 15:30
+
+2024/01/15 Mon
+10:23	Aさん	おはよう！今日のランチどうする？
+10:24	自分	パスタがいいな
+10:25	Aさん	いいね！駅前の新しいイタリアンは？
+10:26	自分	行ってみよう！12時に集合で
+10:27	Aさん	了解！
+
+2024/01/16 Tue
+09:15	Aさん	昨日のパスタ美味しかったね
+09:16	自分	また行きたい！</div>
+
+  <!-- 5. Exporting with ChatArchive -->
+  <h2 id="export-chatarchive">5. Exporting with ChatArchive</h2>
+  <p>LINE's built-in export requires <strong>manual operation for each chat room, one at a time</strong>. If you have many chat rooms, <strong>ChatArchive</strong> lets you back up all chats in one go.</p>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>Import LINE data with ChatArchive</h3>
+      <p>Launch ChatArchive and click "Import." It will automatically detect your LINE database and import all chats at once.</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>Export in .chatarchive format</h3>
+      <p>Use the export feature to save all your chat history. You can then convert it to text as needed and feed it into NotebookLM.</p>
+    </div>
+  </div>
+
+  <div class="info-box tip">
+    <p><strong>Advantages of ChatArchive:</strong> Back up all chat rooms at once. Even if you have over 100 chat rooms, it only takes a single operation. All processing is done locally, so your privacy is fully protected.<br><a href="chatarchive-getting-started.html">Learn more about how to use ChatArchive</a></p>
+  </div>
+
+  <!-- 6. Upload to NotebookLM -->
+  <h2 id="upload">6. Step 2: Upload to NotebookLM</h2>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>Open NotebookLM</h3>
+      <p>Go to <strong>notebooklm.google.com</strong> in your browser and sign in with your Google account.</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>Create a new notebook</h3>
+      <p>Click "New Notebook" to create one. Give it a descriptive name like "LINE Chat Analysis."</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>Upload your source</h3>
+      <p>Click "Add Source," select <strong>"Upload File,"</strong> and upload the .txt file you exported earlier.</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">4</div>
+    <div class="blog-step-body">
+      <h3>Multiple files are OK</h3>
+      <p>If you exported each chat room separately, you can upload multiple .txt files at once. The free plan supports up to <strong>50 files</strong>.</p>
+    </div>
+  </div>
+
+  <div class="info-box warning">
+    <p><strong>File size limits:</strong> Each file can be up to <strong>200 MB</strong> and <strong>500,000 words</strong>. This is more than enough for several years of chat history, but if your file exceeds the limit, split it by time period.</p>
+  </div>
+
+  <!-- 7. Ask AI to Analyze -->
+  <h2 id="analyze">7. Step 3: Ask AI to Analyze</h2>
+  <p>Once the upload is complete, NotebookLM will process the source. You can then ask questions in natural language using the chat box at the bottom of the screen, and the AI will respond.</p>
+
+  <h3>Auto-generated summary by NotebookLM</h3>
+  <p>When you upload a source, NotebookLM automatically generates a <strong>source overview</strong>. This alone gives you a quick grasp of your entire chat history.</p>
+
+  <h3>Answers with citations</h3>
+  <p>NotebookLM's answers include <strong>citations to the source</strong>. You can see exactly which messages the AI's response is based on, making fact-checking easy.</p>
+
+  <!-- 8. Useful Prompts -->
+  <h2 id="prompts">8. Useful Prompts</h2>
+  <p>Here are some example prompts you can use with NotebookLM. Feel free to copy and use them as-is.</p>
+
+  <h3>Summary &amp; Reflection</h3>
+  <div class="prompt-example">Summarize this entire conversation in chronological order</div>
+  <div class="prompt-example">What was the most talked-about topic in 2024?</div>
+  <div class="prompt-example">List the main topics discussed over the past year</div>
+
+  <h3>Information Search</h3>
+  <div class="prompt-example">Extract all restaurant and shop names mentioned in the conversation</div>
+  <div class="prompt-example">Summarize all conversations related to travel</div>
+  <div class="prompt-example">List all messages about appointments and plans in chronological order</div>
+
+  <h3>Analysis</h3>
+  <div class="prompt-example">What topics come up most frequently in the conversation?</div>
+  <div class="prompt-example">Has the tone or mood of the conversation changed over time?</div>
+  <div class="prompt-example">Analyze the characteristics of each participant in this conversation</div>
+
+  <h3>Practical Uses</h3>
+  <div class="prompt-example">List all URLs shared in the conversation</div>
+  <div class="prompt-example">Extract all conversations related to moving, and organize them chronologically</div>
+  <div class="prompt-example">Summarize all recipes and cooking-related information mentioned in the conversation</div>
+
+  <!-- 9. Privacy Notes -->
+  <h2 id="privacy-note">9. Privacy Notes</h2>
+
+  <div class="info-box warning">
+    <p><strong>Important:</strong> Chat history contains personal information. Please understand the following before proceeding.</p>
+  </div>
+
+  <h3>How NotebookLM handles data</h3>
+  <ul>
+    <li>Data is processed in accordance with Google's Privacy Policy</li>
+    <li>Uploaded data is tied to your account and is not shared with other users</li>
+    <li>Deleting a notebook also deletes the data</li>
+  </ul>
+
+  <h3>Before uploading</h3>
+  <ul>
+    <li><strong>Consent from others:</strong> If possible, inform the other parties before loading their conversations into an AI tool</li>
+    <li><strong>Check for sensitive information:</strong> Make sure the chat history does not contain addresses, phone numbers, passwords, or other confidential data</li>
+    <li><strong>Limit the purpose of use:</strong> Use the data only for personal reflection and organization, and do not share the conversation content with third parties</li>
+  </ul>
+
+  <div class="info-box tip">
+    <p><strong>Want to analyze locally?</strong> If you prefer not to upload data to the cloud, you can use <strong>ChatArchive's</strong> full-text search feature to search and browse your chat history entirely on your local machine.</p>
+  </div>
+
+  <!-- 10. More Tips -->
+  <h2 id="tips">10. More Tips</h2>
+
+  <h3>Analyzing group chats</h3>
+  <p>Group chats can be exported using the same steps. Try asking "Analyze each member's messaging tendencies" to discover communication patterns within the group.</p>
+
+  <h3>Cross-room analysis</h3>
+  <p>Upload text files from multiple chat rooms into the same notebook to search and analyze information across different conversations.</p>
+
+  <h3>Using Audio Overview</h3>
+  <p>NotebookLM has an "Audio Overview" feature that automatically generates a podcast-style audio summary based on your sources. You can listen to a spoken overview of long chat histories.</p>
+
+  <h3>Regular backups</h3>
+  <p>Export your chat history once a month and add it to NotebookLM to track changes over time.</p>
+
+  <!-- CTA -->
+  <div class="blog-cta">
+    <h2>Batch Backup All Chats with ChatArchive</h2>
+    <p>No more exporting one chat at a time. ChatArchive backs up all your chat history with one click.</p>
+    <div class="hero-buttons">
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/22d0c5ae-3b31-4834-837d-7373fd1d5bba" class="btn-hero btn-download" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download
+      </a>
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/0faa7a8a-2f47-44e5-a56a-ae86200714d8" class="btn-hero btn-license" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Buy License
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <ul class="footer-links">
+    <li><a href="../privacy.html">Privacy Policy</a></li>
+    <li><a href="../terms.html">Terms of Service</a></li>
+  </ul>
+  <p>&copy; 2025 ChatArchive. All rights reserved.</p>
+</footer>
+
+<!-- ===== Minimal JS ===== -->
+<script>
+document.querySelector('.nav-toggle').addEventListener('click', function () {
+  const nav = document.getElementById('site-nav');
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('open');
+});
+
+document.querySelectorAll('.site-nav a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    document.getElementById('site-nav').classList.remove('open');
+    document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>
