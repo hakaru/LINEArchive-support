@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7NHBDYBWEY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7NHBDYBWEY');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Complete Guide to Backing Up All LINE Chat History on Mac</title>
+  <meta name="description" content="Learn how to back up all your LINE chat history on Mac at once. Compare standard export vs ChatArchive bulk backup.">
+  <meta property="og:title" content="The Complete Guide to Backing Up All LINE Chat History on Mac">
+  <meta property="og:description" content="Learn how to back up all your LINE chat history on Mac at once. Compare standard export methods with ChatArchive's one-click bulk backup.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../images/icon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="../../images/icon-180.png">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/blog.css">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="container">
+    <a href="../" class="logo"><span>Chat</span>Archive</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul class="site-nav" id="site-nav">
+        <li><a href="../#features">Features</a></li>
+        <li><a href="../#howto">How to Use</a></li>
+        <li><a href="../#faq">FAQ</a></li>
+        <li><a href="../#privacy">Privacy</a></li>
+        <li><a href="../#contact">Contact</a></li>
+        <li><a href="./">Blog</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== Blog Article ===== -->
+<article class="blog-article">
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="../">Home</a> &gt; <a href="./">Blog</a> &gt; Complete Guide to Backing Up LINE Chat History
+  </nav>
+
+  <!-- Blog Header -->
+  <header class="blog-header">
+    <h1>The Complete Guide to Backing Up All LINE Chat History on Mac</h1>
+    <p class="blog-meta">Published: March 8, 2026 &#x30FB; Reading time: 8 min</p>
+  </header>
+
+  <!-- Introduction -->
+  <p>Your LINE chat history is a record of your daily life &#8212; casual conversations with family, travel plans with friends, important work discussions. Losing all of that in an instant would be devastating.</p>
+  <p>Yet it happens more often than you might think. <strong>Failed backups during phone transfers</strong>, <strong>account suspensions or hijacking</strong>, and <strong>device failures</strong> can all wipe out years of chat history. LINE's built-in backup options have significant limitations, and there is no official way to bulk-backup all your chats at once.</p>
+  <p>This guide covers LINE's standard backup methods, explains their limitations, and walks you through <strong>how to back up all your LINE chat history on Mac in one step</strong> using ChatArchive.</p>
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>Table of Contents</h2>
+    <ol>
+      <li><a href="#risk">The Risk of Losing LINE Chat History</a></li>
+      <li><a href="#standard">LINE's Standard Backup Methods and Their Limits</a></li>
+      <li><a href="#difficulty">Why Bulk Backup Is Difficult</a></li>
+      <li><a href="#chatarchive">Step-by-Step: Bulk Backup with ChatArchive</a></li>
+      <li><a href="#usage">How to Use Your Backup Data</a></li>
+      <li><a href="#privacy">Privacy and Security</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. Risk -->
+  <h2 id="risk">1. The Risk of Losing LINE Chat History</h2>
+  <p>You might think "it won't happen to me," but the risk of losing LINE chat history is more common than you'd expect.</p>
+
+  <h3>Phone Transfers and Device Failures</h3>
+  <p>When switching from iPhone to Android (or vice versa), only the last 14 days of chat history can be transferred. If your phone gets water-damaged or stops working, any messages received after your last backup are gone forever.</p>
+
+  <h3>Account Suspension or Hijacking</h3>
+  <p>If LINE determines that your account has violated its terms of service, your account may be suspended and you'll lose access to all chat history. If your account is hijacked and the password is changed, you may not even be able to log in.</p>
+
+  <h3>Backup Restoration Failures</h3>
+  <p>Sometimes iCloud or Google Drive backups don't complete properly, or errors occur during restoration. A backup that shows "completed" may actually contain corrupted data that cannot be restored.</p>
+
+  <div class="info-box warning">
+    <p><strong>Important:</strong> LINE does not store your chat history on its servers. Your messages exist only on your device and in cloud backups (iCloud / Google Drive). If you lose both, recovery is impossible.</p>
+  </div>
+
+  <!-- 2. Standard methods -->
+  <h2 id="standard">2. LINE's Standard Backup Methods and Their Limits</h2>
+  <p>LINE offers several backup options, but each comes with significant constraints.</p>
+
+  <h3>Method A: Automatic Backup to iCloud / Google Drive</h3>
+  <p>From LINE's settings, you can automatically back up chat history to iCloud (iPhone) or Google Drive (Android).</p>
+
+  <ul>
+    <li><span class="check">&#x2713;</span> Automatic periodic backups</li>
+    <li><span class="check">&#x2713;</span> Restores when transferring between the same OS</li>
+    <li><strong class="cross">&#x2717;</strong> <strong>Cross-platform transfers (iPhone &#x2194; Android) limited to 14 days</strong></li>
+    <li><strong class="cross">&#x2717;</strong> Cannot browse or search backup data directly</li>
+    <li><strong class="cross">&#x2717;</strong> Consumes cloud storage space</li>
+    <li><strong class="cross">&#x2717;</strong> Encrypted and unreadable outside the LINE app</li>
+  </ul>
+
+  <h3>Method B: Text File Export</h3>
+  <p>You can export conversations from each chat room as .txt files.</p>
+
+  <ul>
+    <li><span class="check">&#x2713;</span> Plain text, readable anywhere</li>
+    <li><span class="check">&#x2713;</span> Suitable for long-term storage</li>
+    <li><strong class="cross">&#x2717;</strong> <strong>Must be done manually, one chat room at a time</strong></li>
+    <li><strong class="cross">&#x2717;</strong> Images, stickers, and videos are not included</li>
+    <li><strong class="cross">&#x2717;</strong> 100 chat rooms means 100 manual operations</li>
+  </ul>
+
+  <h3>Method C: PC LINE Export</h3>
+  <p>LINE for Windows / Mac also has a "Save Chat" feature, but it requires the same one-by-one manual process.</p>
+
+  <div class="info-box note">
+    <p><strong>Summary:</strong> None of LINE's built-in features support backing up all chats at once. For users with many chat rooms, manual export is simply not a practical option.</p>
+  </div>
+
+  <!-- 3. Why bulk backup is difficult -->
+  <h2 id="difficulty">3. Why Bulk Backup Is Difficult</h2>
+  <p>Why doesn't LINE offer a bulk backup feature? There are several technical reasons.</p>
+
+  <h3>End-to-End Encryption</h3>
+  <p>LINE messages are end-to-end encrypted (Letter Sealing). While this is excellent for security, it makes it extremely difficult for third-party tools to access message content.</p>
+
+  <h3>Encrypted Local Database</h3>
+  <p>LINE for Mac stores its database files in an encrypted format. Simply copying the database files won't let you read their contents. The database must be properly decrypted first.</p>
+
+  <h3>No Public API</h3>
+  <p>LINE does not provide a backup API for end users. This makes it challenging for third-party developers to offer official backup solutions.</p>
+
+  <div class="info-box tip">
+    <p><strong>The solution:</strong> ChatArchive overcomes these technical barriers by <strong>automatically detecting and decrypting</strong> LINE for Mac's local database. It reads all your chats safely without modifying the LINE app in any way.</p>
+  </div>
+
+  <!-- 4. Step-by-step with ChatArchive -->
+  <h2 id="chatarchive">4. Step-by-Step: Bulk Backup with ChatArchive</h2>
+  <p><strong>ChatArchive</strong> is a Mac app that lets you back up all your LINE chat history at once. It automatically decrypts LINE's encrypted database and saves all messages, images, and stickers from every chat room.</p>
+
+  <h3>Prerequisites</h3>
+  <ul>
+    <li><strong>macOS 14.0 (Sonoma) or later</strong></li>
+    <li><strong>LINE for Mac installed</strong>, logged in, with chat history synced</li>
+  </ul>
+
+  <div class="blog-step">
+    <div class="blog-step-number">1</div>
+    <div class="blog-step-body">
+      <h3>Download ChatArchive</h3>
+      <p>Download ChatArchive from the official site and drag it to your Applications folder. The download is free.</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">2</div>
+    <div class="blog-step-body">
+      <h3>Grant Full Disk Access</h3>
+      <p>Open <strong>System Settings &gt; Privacy &amp; Security &gt; Full Disk Access</strong> and add ChatArchive. This permission is required to access LINE's database files on your Mac.</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">3</div>
+    <div class="blog-step-body">
+      <h3>Activate Your License</h3>
+      <p>Purchase a license and enter the license key in the app to unlock all features.</p>
+    </div>
+  </div>
+
+  <div class="mid-cta">
+    <p>Purchase a license to unlock all features</p>
+    <a href="https://hakaru.lemonsqueezy.com/checkout/buy/0faa7a8a-2f47-44e5-a56a-ae86200714d8" class="btn-hero btn-download" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Buy License
+    </a>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">4</div>
+    <div class="blog-step-body">
+      <h3>Click "Import"</h3>
+      <p>Click the "Import" button on the main screen. ChatArchive will <strong>automatically detect, decrypt, and import</strong> LINE's encrypted database. No manual file selection required.</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">5</div>
+    <div class="blog-step-body">
+      <h3>Import Complete &#8212; Review All Chats</h3>
+      <p>Within seconds to a few minutes, all your chat rooms will appear in the sidebar. You can browse them in a familiar chat UI and use full-text search across all conversations. Individual chats, group chats, and official account chats are all included.</p>
+    </div>
+  </div>
+
+  <div class="blog-step">
+    <div class="blog-step-number">6</div>
+    <div class="blog-step-body">
+      <h3>Export and Save</h3>
+      <p>Select export from the menu and choose a save location. All data &#8212; text, images, and stickers &#8212; is saved in <strong>.chatarchive format</strong>. Store this file on an external drive or cloud storage, and your backup is complete.</p>
+    </div>
+  </div>
+
+  <div class="info-box tip">
+    <p><strong>Regular backups recommended:</strong> New messages accumulate daily. Consider running a ChatArchive import and export about once a month to keep your backup up to date.</p>
+  </div>
+
+  <!-- 5. How to use backup data -->
+  <h2 id="usage">5. How to Use Your Backup Data</h2>
+  <p>Data backed up with ChatArchive is more than just insurance &#8212; it's genuinely useful.</p>
+
+  <h3>Search Across All Conversations</h3>
+  <p>Use ChatArchive's full-text search to find anything across all your chat rooms. Looking for that restaurant name someone mentioned? Need to find last year's travel dates? It takes seconds, and it's faster and more comprehensive than LINE's built-in search.</p>
+
+  <h3>Insurance Before Phone Transfers</h3>
+  <p>If you're planning to switch from iPhone to Android (or the reverse), backing up with ChatArchive beforehand ensures that no chat history is lost during the transition &#8212; even the messages beyond the 14-day cross-platform limit.</p>
+
+  <h3>Long-Term Memory Preservation</h3>
+  <p>Save precious conversations with family and friends in a format you can revisit anytime. Just like a photo album, your text-based memories deserve to be preserved as a digital archive.</p>
+
+  <h3>AI-Powered Analysis</h3>
+  <p>Load your exported data into AI tools like Google NotebookLM for summarization, information extraction, and pattern analysis of your conversations.</p>
+  <p><a href="line-backup-notebooklm.html">&#x2192; How to Analyze LINE Chat History with NotebookLM</a></p>
+
+  <!-- 6. Privacy and Security -->
+  <h2 id="privacy">6. Privacy and Security</h2>
+  <p>When backing up chat history, privacy is the number one concern. ChatArchive is designed with this as the top priority.</p>
+
+  <h3>Fully Local Processing</h3>
+  <p>ChatArchive <strong>performs no internet communication whatsoever</strong>. All data reading, display, and export happens entirely on your Mac. Your chat history is never sent to any external server, period.</p>
+
+  <h3>You Control Where Your Data Is Stored</h3>
+  <p>You decide where to save the exported .chatarchive file. Store it on an encrypted USB drive, keep it in a password-protected folder, or save it to a private cloud &#8212; the security level is entirely up to you.</p>
+
+  <h3>No Impact on Your LINE Account</h3>
+  <p>ChatArchive only reads the local database on your Mac. It does not access LINE's servers, modify your account settings, or interact with LINE in any way. Your LINE usage is completely unaffected.</p>
+
+  <div class="info-box note">
+    <p><strong>Privacy by design:</strong> No network communication. No server uploads. No account information collected. ChatArchive operates entirely within the boundaries of your Mac.</p>
+  </div>
+
+  <!-- 7. FAQ -->
+  <h2 id="faq">7. FAQ</h2>
+
+  <h3>Q: Do I need to be logged in to LINE on my Mac?</h3>
+  <p>Yes. ChatArchive reads LINE's database on your Mac. You need to have logged in to LINE for Mac at least once and have your chat history synced. LINE doesn't need to be running when you perform the backup &#8212; it just needs to have synced previously.</p>
+
+  <h3>Q: How far back does the backup go?</h3>
+  <p>ChatArchive backs up all chat history that has been synced to LINE for Mac. The exact range depends on your LINE app settings and device state, but it typically includes several years of chat history.</p>
+
+  <h3>Q: Are images and stickers included in the backup?</h3>
+  <p>Yes. Images and stickers that remain in LINE's cache are saved. Older images whose cache has been cleared will appear as placeholders. More recent messages are more likely to have their media intact.</p>
+
+  <h3>Q: Can I view the backup on a different Mac?</h3>
+  <p>Yes. Import the .chatarchive file into ChatArchive on another Mac and you can browse and search all your conversations immediately.</p>
+
+  <h3>Q: Does it work with iPhone or Android?</h3>
+  <p>ChatArchive is a macOS-only app. However, since LINE for Mac syncs your smartphone's chat history, you can effectively back up your iPhone or Android chat history through your Mac.</p>
+
+  <h3>Q: Can I try it for free?</h3>
+  <p>The download is free. A license purchase is required to unlock all features.</p>
+
+  <!-- CTA -->
+  <div class="blog-cta">
+    <h2>Protect Your Chat History &#8212; Back Up Now</h2>
+    <p>Don't wait until a phone transfer or account issue makes it too late.<br>Back up all your LINE chat history with one click using ChatArchive.</p>
+    <div class="hero-buttons">
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/0faa7a8a-2f47-44e5-a56a-ae86200714d8" class="btn-hero btn-download" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Buy License
+      </a>
+      <a href="https://hakaru.lemonsqueezy.com/checkout/buy/22d0c5ae-3b31-4834-837d-7373fd1d5bba" class="btn-hero btn-license" target="_blank" rel="noopener">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Free Download
+      </a>
+    </div>
+  </div>
+
+</article>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <ul class="footer-links">
+    <li><a href="../privacy.html">Privacy Policy</a></li>
+    <li><a href="../terms.html">Terms of Service</a></li>
+  </ul>
+  <p>&copy; 2025 ChatArchive. All rights reserved.</p>
+</footer>
+
+<!-- ===== Minimal JS ===== -->
+<script>
+document.querySelector('.nav-toggle').addEventListener('click', function () {
+  const nav = document.getElementById('site-nav');
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  this.setAttribute('aria-expanded', !expanded);
+  nav.classList.toggle('open');
+});
+
+document.querySelectorAll('.site-nav a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    document.getElementById('site-nav').classList.remove('open');
+    document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+  });
+});
+</script>
+
+</body>
+</html>
